@@ -54,10 +54,18 @@
       }
     }
 
-    @media only screen and (min-width: 1440px) {
+    @media only screen and (min-width: 1440px) and (max-width: 1920px) {
       body {
         display: grid;
         grid-template-columns: 25% 50%;
+        font-size: 24px;
+      }
+    }
+
+    @media only screen and (min-width: 1920px) {
+      body {
+        display: grid;
+        grid-template-columns: 480px 960px;
         font-size: 24px;
       }
     }
