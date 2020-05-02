@@ -1,138 +1,248 @@
 <!DOCTYPE html>
-<html class="no-js">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>code attic</title>
-        <meta name="google-site-verification" content="TRkDqKzYukWSqxaXGkkUmYk0UaJ6vVV5tg4zSvB4qwc" />
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+<head lang="en">
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>personal code attic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <style type="text/css">
+    html, body {
+      margin: 0 !important;
+      padding: 0 !important;
+      font-size: 18px;
+      font-family: 'Lato', sans-serif;
+      height: 100%;
+    }
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/main.css">
+    @media only screen and (max-width: 768px) {
+      body {
+        display: grid;
+        grid-template-rows: auto auto;
+      }
 
-        <!--[if lt IE 9]>
-            <script src="/js/vendor/html5shiv.min.js"></script>
-        <![endif]-->
+      main {
+        padding-top: 1rem;
+        grid-row-start: 2;
+        grid-column-start: 1;
+      }
 
-        <script src="js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js"></script>
-    </head>
-    <body>
-        <main class="container left-container">
-            <div class="row">
+      aside {
+        grid-row-start: 1;
+        grid-column-start: 1;
+        padding-bottom: 0.1rem;
+      }
+    }
 
-                <section class="sidebar col-md-5 col-sm-12" style="background-image: url(img/default-sidebar.jpg">
+    @media only screen and (min-width: 768px) {
+      main {
+        padding-top: 1rem;
+        grid-column-start: 2;
+        grid-row-start: 1;
+      }
 
-                    <div class="site-info">
-                        <div class="primary-info">
-                        <h1>code attic</h1>
-                            <p>a place for me to share &dash; what I consider interesting &dash; code examples, debugging steps and various system (or environment) setups</p>
-                        </div>
-                        <div class="secondary-info">
-                          <p>
-                            <strong>
-                              Image by <a href="https://www.flickr.com/photos/andreas_klodt/12886744624/in/photolist-kCKWd9-wUbbq1-cvA52j-9Rm3R6-PCsBZ-aEUSww-rs6TaZ-bvCDoS-dHwLyG-jGnH7i-wUbchb-9s4JQM-6DEjzY-nSoAuh-wtJyJq-5i8H9T-iy7PQq-8fKmSc-6y5xPw-fimubM-oQjaTa-8fNC3f-8GUuL9-8fNBKL-p7iwn9-aGkrG-p3hhmX-t36c6j-cMwLhj-pBWRMX-8VpwiL-85sM2j-ygXkW2-oW3EPe-nJJfiC-ZW53-5yY5Se-ekarjY-7aGLts-6cz8dU-ZW54-4nB7Up-yptb-oFD6MM-ebHY65-PsLZv-77Hs2y-9Jf4xY-6X3Sth-3J1Ejv">Andreas Klodt</a></strong>
-                              </p>
-                        </div>
-                    </div>
-                </section><!-- end sidebar -->
+      aside {
+        grid-column-start: 1;
+        grid-row-start: 1;
+        max-height: 100%;
+      }
+    }
 
-                <section class="col-md-7 col-sm-12 col-md-offset-5 main-content">
+    @media only screen and (min-width: 768px) and (max-width: 1280px) {
+      body {
+        display: grid;
+        grid-template-columns: 35% 65%;
+      }
+    }
 
-                    <div class="home-page-posts animated fadeIn ">
+    @media only screen and (min-width: 1280px) {
+      body {
+        display: grid;
+        grid-template-columns: 20% 50%;
+      }
+    }
 
-                        
-                        <article class="post">
-                            <div class="post-preview col-xs-12  no-gutter">
-                                <h2>
-                                  <a href="https://gist.github.com/mhitza/c454f5d8a30edb122f56bc67ffb386be">
-                                    Prolong keyboard backlight timeout 
-                                  </a>
-                                </h2>
+    article {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
 
-                                <p>
-                                  Frustrated by some weird default keyboard backlight timeout on your laptop under Linux? I know how you feel, had
-                                  the same frustration with my Dell laptop until I found a workaround.
-                                </p>
-                            </div>
-                        </article>
-                        
-                        <article class="post">
-                            <div class="post-preview col-xs-12  no-gutter">
-                                <h2>
-                                  <a href="https://gist.github.com/mhitza/15a56a20ac80b456cda6">
-                                    LVM snapshots 
-                                  </a>
-                                </h2>
+    article a {
+      outline: none;
+    }
 
-                                <p>
-                                  A great feature to use when experimenting with different system setups. I no longer have to worry about polluting
-                                  my system with extra packages when I want to test a new desktop environment, or a new driver version, or even
-                                  a botched system installation. With LVM I can just snapshot a working system and restore just as easily if something
-                                  goes wrong.
-                                </p>
-                            </div>
-                        </article>
+    article a h2 {
+      text-decoration: underline;
+    }
 
-                        <article class="post">
-                            <div class="post-preview col-xs-12  no-gutter">
-                                <h2>
-                                  <a href="https://gist.github.com/mhitza/8a4608f4dfdec20d3879">
-                                    Programming Arduino Uno (ATmega386P) in assembly
-                                  </a>
-                                </h2>
+    article a, article a h2 {
+      font-size: 1rem;
+      font-weight: normal;
+      margin-top: 0;
+      margin-bottom: 0;
+      display: inline-block;
+    }
 
-                                <p>
-                                  After reading various sources on the topic I've written a few notes, and a sample project, to illustrate a working setup
-                                  for the task. Also tried to go a little more in depth in certain parts, to clear up some confusion I've dealt with when
-                                  researching the topic.
-                                </p>
-                            </div>
-                        </article>
+    article a:focus + p {
+      display: block;
+    }
 
-                        <article class="post">
-                            <div class="post-preview col-xs-12  no-gutter">
-                                <h2>
-                                  <a href="https://gist.github.com/mhitza/81651f49b3a43e6f4554">
-                                    How to connect your PSP on Linux
-                                  </a>
-                                </h2>
+    article a:focus h2::before {
+      font-size: 0.95rem;
+      margin-right: 0.2rem;
+      content: '☞';
+      /** the magic of css http://archive.vn/cCUEE */
+      display: inline-block;
+      color: black;
+    }
 
-                                <p>
-                                  A few common debugging steps you can try if it doesn't get automounted like it normally should.
-                                </p>
-                            </div>
-                        </article>
+    article a:hover + p {
+      display: block;
+    }
 
-                        <article class="post">
-                            <div class="post-preview col-xs-12  no-gutter">
-                                <h2>
-                                  <a href="https://gist.github.com/mhitza/189cdecacb93ecd83f29">
-                                    Sculpin for Github pages
-                                  </a>
-                                </h2>
+    article p {
+      font-size: 0.80rem;
+      text-align: justify;
+      margin-top: 0;
+      /* display: none; */
+    }
 
-                                <p>
-                                  A simple repository setup that I've used in the past for static blog publishing via Sculpin.
-                                  The model is inspired by the way Octopress does it's repository setup.
-                                </p>
-                            </div>
-                        </article>
+    a {
+      color: lightseagreen;
+    }
+    a:active, a:visited {
+      color: purple;
+    }
 
-                    </div><!-- Home page posts -->
-                </section><!-- main content -->
+    aside {
+      /* http://archive.vn/hmIbO */
+      background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url("https://live.staticflickr.com/5536/9376915006_a03f393a98_k.jpg");
+      background-position: center;
+      background-size: cover;
 
-            </div> <!--/row -->
+      display: flex;
+      flex-flow: column;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
 
-        </main> <!-- /container -->
+    aside a, aside a:visited {
+      color: white
+    }
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+    .label {
+      color: white;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      font-size: 0.7rem;
+    }
 
-        <script src="js/vendor/bootstrap.min.js"></script>
-        <script src="js/vendor/fastclick.min.js"></script>
+    h1 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      padding: 0.1rem 0.4rem 0.2rem 0.4rem;
+      background-color: black;
+      display: inline-block;
+      font-size: 1.5rem;
+    }
 
-        <script src="js/main.js"></script>
-    </body>
+    .label span {
+      background-color: black;
+      padding: 0.1rem 0.4rem 0.2rem 0.4rem;
+      margin: 0;
+      line-height: 1.4rem;
+      white-space: nowrap;
+      font-size: 0.8rem;
+    }
+
+    .image_credit {
+      padding-left: 1.2rem;
+      margin-bottom: 0.5rem !important;
+    }
+
+    hr {
+      width: 100%;
+      border: 0;
+      border-top: 1px dashed white;
+    }
+  </style>
+</head>
+
+<body>
+<main>
+  <section>
+    <article>
+      <a href="https://gist.github.com/mhitza/c454f5d8a30edb122f56bc67ffb386be">
+        <h2>Prolong keyboard backlight timeout</h2>
+      </a>
+
+      <p>
+        Frustrated by some weird default keyboard backlight timeout on your laptop under Linux? I know how you feel, had
+        the same frustration with my Dell laptop until I found a workaround.
+      </p>
+    </article>
+
+    <article>
+      <a href="https://gist.github.com/mhitza/15a56a20ac80b456cda6">
+        <h2>LVM snapshots</h2>
+      </a>
+
+      <p>
+        A great feature to use when experimenting with different system setups. I no longer have to worry about polluting
+        my system with extra packages when I want to test a new desktop environment, or a new driver version, or even
+        a botched system installation. With LVM I can just snapshot a working system and restore just as easily if something
+        goes wrong.
+      </p>
+    </article>
+
+    <article>
+      <a href="https://gist.github.com/mhitza/8a4608f4dfdec20d3879">
+        <h2>Programming Arduino Uno (ATmega386P) in assembly</h2>
+      </a>
+
+      <p>
+        After reading various sources on the topic I've written a few notes, and a sample project, to illustrate a working setup
+        for the task. Also tried to go a little more in depth in certain parts, to clear up some confusion I've dealt with when
+        researching the topic.
+      </p>
+    </article>
+
+    <article>
+      <a href="https://gist.github.com/mhitza/81651f49b3a43e6f4554">
+        <h2>How to connect your PSP on Linux</h2>
+      </a>
+
+      <p>
+        A few common debugging steps you can try if it doesn't get automounted like it normally should.
+      </p>
+    </article>
+
+    <article>
+      <a href="https://gist.github.com/mhitza/189cdecacb93ecd83f29">
+        <h2>Sculpin for Github pages</h2>
+      </a>
+
+      <p>
+        A simple repository setup that I've used in the past for static blog publishing via Sculpin.
+        The model is inspired by the way Octopress does it's repository setup.
+      </p>
+    </article>
+  </section>
+
+</main>
+<aside>
+  <div class="label">
+    <h1>personal code attic</h1>
+  </div>
+  <div class="label">
+    <span>technical problems</span>
+    <span>programming examples</span>
+    <span>random quirks of running a Linux system</span>
+  </div>
+  <hr/>
+
+  <div class="label image_credit">
+      image by <a href="https://www.flickr.com/photos/rawmeyn/9376915006/">Roman Königshofer</a>
+  </div>
+</aside>
+</body>
 </html>
