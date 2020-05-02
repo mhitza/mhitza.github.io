@@ -41,6 +41,7 @@
       }
 
       aside {
+        padding-top: 1rem;
         grid-column-start: 1;
         grid-row-start: 1;
         max-height: 100%;
@@ -84,7 +85,7 @@
     }
 
     article a, article a h2 {
-      font-size: 1rem;
+      font-size: 1.5rem;
       font-weight: normal;
       margin-top: 0;
       margin-bottom: 0;
@@ -96,7 +97,7 @@
     }
 
     article a:focus h2::before {
-      font-size: 0.95rem;
+      font-size: 1.45rem;
       margin-right: 0.2rem;
       content: '☞';
       /** the magic of css http://archive.vn/cCUEE */
@@ -109,14 +110,14 @@
     }
 
     article p {
-      font-size: 0.80rem;
+      font-size: 1.0rem;
       text-align: justify;
       margin-top: 0;
       /* display: none; */
     }
 
     a {
-      color: lightseagreen;
+      color: dodgerblue;
     }
     a:active, a:visited {
       color: purple;
@@ -132,6 +133,32 @@
       flex-flow: column;
       flex-direction: column;
       justify-content: flex-end;
+
+      position: relative;
+    }
+
+    aside .tooltip {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: white;
+      color: black;
+      font-weight: bold;
+      opacity: 75%;
+      padding: 0.5rem;
+      font-size: 0.7rem;
+      border-radius: 2px;
+    }
+    .tooltip::after {
+      content: " ";
+      position: absolute;
+      top: 50%;
+      left: 100%; /* To the right of the tooltip */
+      opacity: 75%;
+      margin-top: -8px;
+      border-width: 8px;
+      border-style: solid;
+      border-color: transparent transparent transparent white;
     }
 
     aside a, aside a:visited {
@@ -151,16 +178,16 @@
       padding: 0.1rem 0.4rem 0.2rem 0.4rem;
       background-color: black;
       display: inline-block;
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
 
     .label span {
       background-color: black;
       padding: 0.1rem 0.4rem 0.2rem 0.4rem;
       margin: 0;
-      line-height: 1.4rem;
+      line-height: 1.7rem;
       white-space: nowrap;
-      font-size: 0.8rem;
+      font-size: 1rem;
     }
 
     .image_credit {
@@ -239,13 +266,16 @@
 
 </main>
 <aside>
+  <span class="tooltip" style="display: none">
+    &lt;TAB&gt; navigation
+  </span>
   <div class="label">
     <h1>personal code attic</h1>
   </div>
   <div class="label">
     <span>technical problems</span>
     <span>programming examples</span>
-    <span>random quirks of running a Linux system</span>
+    <span>quirks of running a Linux system</span>
   </div>
   <hr/>
 
