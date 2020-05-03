@@ -1,5 +1,5 @@
 #!/usr/bin/env stack
--- stack runghc --package directory --package http-client --package http-client-tls --package aeson
+-- stack runghc --package directory --package http-client --package http-client-tls --package aeson --package utf8-string
 -- vim: set syntax=haskell :
 {-# LANGUAGE OverloadedStrings #-}
 import System.Environment
@@ -56,7 +56,7 @@ main = getDirectoryArgument . filesWithContents $ \files ->
       let create_gist = object
             [ "files" .= encodeFilesSection files
             , "description" .= (Text.pack "lorem ipsum")
-            , "public" .= False ]
+            , "public" .= True ]
 
       manager <- newManager tlsManagerSettings
       initialRequest <- parseRequest "https://api.github.com/gists"
