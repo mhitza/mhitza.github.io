@@ -7,6 +7,7 @@ on:
 
 jobs:
   upload:
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
     runs-on: ubuntu-latest
 
     steps:
@@ -26,4 +27,4 @@ jobs:
       uses: docker://cdssnc/auto-commit-github-action
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
-        args: AUTOCOMMIT published post
+        args: AUTOCOMMIT published post [skip ci]
