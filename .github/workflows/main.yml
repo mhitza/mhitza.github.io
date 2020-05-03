@@ -1,0 +1,29 @@
+name: Publish article
+on:
+  push:
+    branches: master
+    paths: 
+      - post/
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Post files in post/ in a gist
+      run: |
+        GIST_URL=$(.github/workflows/gist-upload-directory `pwd`/post ${{ secrets.GITHUB_TOKEN }})
+        echo "::set-env name=GIST_URL::$GIST_URL"
+        
+    - name: Replace post/ content with a reference
+      run: |
+        echo $GIST_URL > references/`date +%+4Y-%m-%d`
+        rm post/*
+    
+    - name: Commit changes
+      uses: docker://cdssnc/auto-commit-github-action
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        args: AUTOCOMMIT published post
