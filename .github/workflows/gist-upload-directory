@@ -25,8 +25,8 @@ terminateWith message code = do
 
 getDirectoryArgument f = do
   args <- getArgs
-  if length args /= 2
-    then terminateWith "first argument must be a directory name, second argument a GitHub token" 2
+  if length args /= 3
+    then terminateWith "first argument must be a directory name, second argument a GitHub token, third argument is the description of the gist" 2
     else f (head args)
 
 ioMaybe f = catchIOError (fmap Just f) (\io_error -> return Nothing)
@@ -53,20 +53,20 @@ main = getDirectoryArgument . filesWithContents $ \files ->
   in if not (null filesNotRead)
     then terminateWith ("could not read files: " ++ (intercalate ", " (map fst filesNotRead))) 5
     else do
+      (_:github_token:gist_description:_) <- getArgs
+
       let create_gist = object
             [ "files" .= encodeFilesSection files
-            , "description" .= (Text.pack "lorem ipsum")
+            , "description" .= (Text.pack gist_description)
             , "public" .= True ]
 
       manager <- newManager tlsManagerSettings
       initialRequest <- parseRequest "https://api.github.com/gists"
 
-      args <- getArgs
-
       let request = initialRequest
             { method = "POST"
             , requestBody = RequestBodyLBS $ encode create_gist
-            , requestHeaders = [ ("Authorization", "Bearer " <> ByteString.fromString (args !! 1))
+            , requestHeaders = [ ("Authorization", "Bearer " <> ByteString.fromString github_token)
                                , ("User-Agent", "Gister") ]}
 
       maybe_responseJSON <- fmap (decode . responseBody) $ httpLbs request manager
