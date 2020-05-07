@@ -16,7 +16,7 @@ jobs:
 
     - name: Post files in post/ in a gist
       run: |
-        GIST_URL=$(.github/workflows/gist-upload-directory `pwd`/post ${{ secrets.GITHUB_TOKEN }} "${{ github.event.head_commit.message }}")
+        GIST_URL=$(.github/workflows/gist-upload-directory `pwd`/post ${{ secrets.GIST_API_TOKEN }} "${{ github.event.head_commit.message }}")
         echo "::set-env name=GIST_URL::$GIST_URL"
         
     - name: Replace post/ content with a reference
