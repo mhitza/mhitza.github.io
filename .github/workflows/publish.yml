@@ -21,7 +21,7 @@ jobs:
         
     - name: Replace post/ content with a reference
       run: |
-        echo $GIST_URL > references/`date +%+4Y-%m-%d`
+        echo $GIST_URL > references/`date +%4Y-%m-%d`
         rm post/*
     
     - name: Commit changes
