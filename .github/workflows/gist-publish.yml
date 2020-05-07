@@ -1,9 +1,10 @@
 name: Publish article
 on:
   push:
-    branches: master
+    branches:
+      - master
     paths: 
-      - post/
+      - 'post/**'
 
 jobs:
   upload:
