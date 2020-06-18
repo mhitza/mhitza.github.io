@@ -1,0 +1,270 @@
+#!/usr/bin/env stack
+-- stack runghc --package shakespeare --package directory --package yaml
+-- vim: set syntax=haskell :
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE DeriveGeneric #-}
+import Text.Hamlet (shamlet)
+import Text.Blaze.Html.Renderer.String (renderHtml)
+import GHC.Generics
+import Data.Yaml (decodeFileThrow, FromJSON)
+import System.Directory (listDirectory)
+import Data.List (sort)
+
+
+data Article = Article { title :: String
+                       , url :: String
+                       , summary :: String
+                       } deriving (Generic)
+
+instance FromJSON Article
+
+loadArticles :: IO [Article]
+loadArticles = do
+  files <- listDirectory "references"
+  -- I would have expected listDirectory to return items natural sorted order, just
+  -- like in a terminal ls call
+  flip mapM (reverse $ sort files) $ \file -> decodeFileThrow ("references/" ++ file)
+
+main :: IO ()
+main = do
+  articles <- loadArticles
+  writeFile "index.html" $ renderHtml [shamlet|
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <title>personal code attic
+    #{stylesheet}
+
+  <body>
+    <main>
+      <section>
+        $forall article <- articles
+          <article>
+            <a href="#{url article}">
+              <h2>#{title article}
+            <p>#{summary article}
+
+    <aside>
+      <span class="tooltip" style="display: none">
+        &lt;TAB&gt; navigation
+      <div class="label">
+        <h1>personal code attic
+      <div class="label">
+        <span>technical problems
+        <span>programming examples
+        <span>quirks of running a Linux system
+      <hr>
+
+      <div class="label image_credit">
+        image by <a href="https://www.flickr.com/photos/rawmeyn/9376915006/">Roman Königshofer</a>
+|]
+
+stylesheet = [shamlet|
+<style type="text/css">
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wXg.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+    height: 100%;
+  }
+
+  @media only screen and (max-width: 800px) {
+    body {
+      display: grid;
+      grid-template-rows: 50% auto;
+    }
+
+    main {
+      padding-top: 1rem;
+      grid-row-start: 2;
+      grid-column-start: 1;
+    }
+
+    aside {
+      grid-row-start: 1;
+      grid-column-start: 1;
+      padding-bottom: 0.1rem;
+    }
+  }
+
+  @media only screen and (min-width: 800px) {
+    main {
+      padding-top: 1rem;
+      grid-column-start: 2;
+      grid-row-start: 1;
+    }
+
+    aside {
+      padding-top: 1rem;
+      grid-column-start: 1;
+      grid-row-start: 1;
+      max-height: 100%;
+    }
+  }
+
+  @media only screen and (min-width: 800px) and (max-width: 1440px) {
+    body {
+      display: grid;
+      grid-template-columns: 35% 65%;
+    }
+  }
+
+  @media only screen and (min-width: 1440px) and (max-width: 1920px) {
+    body {
+      display: grid;
+      grid-template-columns: 25% 50%;
+      font-size: 24px;
+    }
+  }
+
+  @media only screen and (min-width: 1920px) {
+    body {
+      display: grid;
+      grid-template-columns: 480px 960px;
+      font-size: 24px;
+    }
+  }
+
+  article {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  article a {
+    outline: none;
+  }
+
+  article a h2 {
+    text-decoration: underline;
+  }
+
+  article a, article a h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: inline-block;
+  }
+
+  article a:focus + p {
+    display: block;
+  }
+
+  article a:focus h2::before {
+    font-size: 1.45rem;
+    margin-right: 0.2rem;
+    content: '☞';
+    /** the magic of css http://archive.vn/cCUEE */
+    display: inline-block;
+    color: black;
+  }
+
+  article a:hover + p {
+    display: block;
+  }
+
+  article p {
+    font-size: 1.0rem;
+    text-align: justify;
+    margin-top: 0;
+    /* display: none; */
+  }
+
+  a {
+    color: dodgerblue;
+  }
+  a:active, a:visited {
+    color: purple;
+  }
+
+  aside {
+    /* http://archive.vn/hmIbO */
+    background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url("https://user-images.githubusercontent.com/273079/80894743-977ade00-8ce6-11ea-86ca-c22d3ecd011e.jpg");
+    background-position: center;
+    background-size: cover;
+
+    display: flex;
+    flex-flow: column;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    position: relative;
+  }
+
+  aside .tooltip {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    opacity: 75%;
+    padding: 0.5rem;
+    font-size: 0.7rem;
+    border-radius: 2px;
+  }
+  .tooltip::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 100%; /* To the right of the tooltip */
+    opacity: 75%;
+    margin-top: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent transparent white;
+  }
+
+  aside a, aside a:visited {
+    color: white
+  }
+
+  .label {
+    color: white;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 0.7rem;
+  }
+
+  h1 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    padding: 0.1rem 0.4rem 0.2rem 0.4rem;
+    background-color: black;
+    display: inline-block;
+    font-size: 2rem;
+  }
+
+  .label span {
+    background-color: black;
+    padding: 0.1rem 0.4rem 0.2rem 0.4rem;
+    margin: 0;
+    line-height: 1.7rem;
+    white-space: nowrap;
+    font-size: 1rem;
+  }
+
+  .image_credit {
+    padding-left: 1.2rem;
+    margin-bottom: 0.5rem !important;
+  }
+
+  hr {
+    width: 100%;
+    border: 0;
+    border-top: 1px dashed white;
+  }
+|]
