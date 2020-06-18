@@ -1,1 +1,4 @@
-https://gist.github.com/mhitza/189cdecacb93ecd83f29
+title: Sculpin for Github pages
+url: https://gist.github.com/mhitza/189cdecacb93ecd83f29
+summary: A simple repository setup that I've used in the past for static blog publishing via Sculpin. The model is inspired by the way Octopress does it's repository setup.
+

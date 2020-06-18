@@ -21,12 +21,20 @@ jobs:
 
     - name: Post files in post/ in a gist
       run: |
-        GIST_URL=$(.github/workflows/gist-upload-directory `pwd`/post ${{ secrets.GIST_API_TOKEN }} "${{ github.event.head_commit.message }}")
+        title=$(echo "${{ github.event.head_commit.message }}" | head -1)
+        GIST_URL=$(.github/workflows/gist-upload-directory `pwd`/post ${{ secrets.GIST_API_TOKEN }} "$title")
         echo "::set-env name=GIST_URL::$GIST_URL"
         
     - name: Replace post/ content with a reference
       run: |
-        echo $GIST_URL > references/`date +%4Y-%m-%d`
+        filename=references/`date +%4Y-%m-%d`
+
+        echo "title: ${{ github.event.head_commit.message }}" > $filename
+        echo "url: $GIST_URL" >> $filename
+
+        summary=$(echo "${{ github.event.head_commit.message }}" | sed '2d' | paste -sd " " -)
+        echo "summary: $summary" >> $filename
+
         rm post/*
     
     - name: Commit changes
