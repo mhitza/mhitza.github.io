@@ -19,13 +19,13 @@ jobs:
         path: ~/.stack
         key: ${{ runner.os }}-stack
 
-    - name: Post files in post/ in a gist
+    - name: Publish article
       run: |
         title=$(echo "${{ github.event.head_commit.message }}" | head -1)
         GIST_URL=$(.github/workflows/gist-upload-directory `pwd`/post ${{ secrets.GIST_API_TOKEN }} "$title")
         echo "::set-env name=GIST_URL::$GIST_URL"
         
-    - name: Replace post/ content with a reference
+    - name: Add article reference
       run: |
         filename=references/`date +%4Y-%m-%d`
 
@@ -36,6 +36,10 @@ jobs:
         echo "summary: $summary" >> $filename
 
         rm post/*
+
+    - name: Rebuild index.html
+      run: |
+        ./scripts/generate-index
     
     - name: Commit changes
       uses: docker://cdssnc/auto-commit-github-action
