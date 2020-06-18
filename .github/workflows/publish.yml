@@ -22,7 +22,7 @@ jobs:
     - name: Publish article
       run: |
         title=$(echo "${{ github.event.head_commit.message }}" | head -1)
-        GIST_URL=$(.github/workflows/gist-upload-directory `pwd`/post ${{ secrets.GIST_API_TOKEN }} "$title")
+        GIST_URL=$(./scripts/publish `pwd`/post ${{ secrets.GIST_API_TOKEN }} "$title")
         echo "::set-env name=GIST_URL::$GIST_URL"
         
     - name: Add article reference
