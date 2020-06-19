@@ -26,6 +26,15 @@ loadArticles = do
   -- like in a terminal ls call
   flip mapM (reverse $ sort files) $ \file -> decodeFileThrow ("references/" ++ file)
 
+data Aside  = Aside { image_url :: String
+                    , image_source :: String
+                    , image_author :: String
+                    }
+aside = Aside { image_url = "https://user-images.githubusercontent.com/273079/80894743-977ade00-8ce6-11ea-86ca-c22d3ecd011e.jpg"
+              , image_source = "https://www.flickr.com/photos/rawmeyn/9376915006/"
+              , image_author = "Roman Königshofer"
+              }
+
 main :: IO ()
 main = do
   articles <- loadArticles
@@ -47,7 +56,8 @@ main = do
               <h2>#{title article}
             <p>#{summary article}
 
-    <aside>
+    <!-- http://archive.vn/hmIbO -->
+    <aside style="background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url('#{image_url aside}')">
       <span class="tooltip" style="display: none">
         &lt;TAB&gt; navigation
       <div class="label">
@@ -59,7 +69,7 @@ main = do
       <hr>
 
       <div class="label image_credit">
-        image by <a href="https://www.flickr.com/photos/rawmeyn/9376915006/">Roman Königshofer</a>
+        image by <a href="#{image_source aside}">#{image_author aside}</a>
 |]
 
 stylesheet = [shamlet|
@@ -192,7 +202,6 @@ stylesheet = [shamlet|
 
   aside {
     /* http://archive.vn/hmIbO */
-    background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url("https://user-images.githubusercontent.com/273079/80894743-977ade00-8ce6-11ea-86ca-c22d3ecd011e.jpg");
     background-position: center;
     background-size: cover;
 
