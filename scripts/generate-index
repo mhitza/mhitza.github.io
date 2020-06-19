@@ -1,5 +1,5 @@
 #!/usr/bin/env stack
--- stack runghc --package shakespeare --package directory --package yaml
+-- stack runghc --package shakespeare --package directory --package yaml --package time
 -- vim: set syntax=haskell :
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE QuasiQuotes #-}
@@ -11,6 +11,7 @@ import Data.Yaml (decodeFileThrow, FromJSON)
 import System.Directory (listDirectory)
 import Data.List (sort)
 import Data.Maybe (fromMaybe)
+import Data.Time (getCurrentTime, utctDay, toGregorian, utctDayTime, formatTime, defaultTimeLocale)
 
 
 data Article = Article { title :: String
@@ -77,6 +78,11 @@ main = do
       <div class="label image_credit">
         image by <a href="#{image_source aside}">#{image_author aside}</a>
 |]
+
+  t <- getCurrentTime
+  let current_date = formatTime defaultTimeLocale "%FT%TZ" t
+  let format_article_date = (<> "T00:00:00Z") . fromMaybe "1970-01-01" . date
+
   writeFile "atom.xml" . mappend "<?xml version=\"1.0\" encoding=\"utf-8\"?>" $
     renderHtml [shamlet|
 <feed xmlns="http://www.w3.org/2005/Atom">
@@ -84,6 +90,8 @@ main = do
   <subtitle>technical problems, programming examples, quirks of running a Linux system
   <link href="https://mhitza.github.io/atom.xml" rel="self" />
   <link href="https://mhitza.github.io" />
+  <id>tag:mhitza.github.io,2000-01-01:/index
+  <updated>#{current_date}
   <author>
     <name>Marius Ghita
 
@@ -92,7 +100,8 @@ main = do
       <title>#{title article}
       <link href="#{url article}"/>
       <summary>#{summary article}
-      <id>tag:mhitza.github.io,#{fromMaybe "1970-00-01" $ date article}:/
+      <id>tag:mhitza.github.io,#{fromMaybe "1970-01-01" $ date article}:/
+      <updated>#{format_article_date article}
 |]
 
 stylesheet = [shamlet|
