@@ -1,0 +1,3 @@
+title: Using Vimwiki like a standard desktop application
+url: https://gist.github.com/74bedf5de1b3ace84d02bb634128193e
+summary: When taking notes I prefer to launch the note-taking application, write a few lines and close the application. Having used Vimwiki for the last few days, I had to create a desktop entry wrapper around it, just to avoid the "Open Terminal first", step.
