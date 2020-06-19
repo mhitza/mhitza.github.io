@@ -29,7 +29,8 @@ jobs:
       run: |
         filename=references/`date +%4Y-%m-%d`
 
-        echo "title: ${{ github.event.head_commit.message }}" > $filename
+        title=$(echo "${{ github.event.head_commit.message }}" | head -1)
+        echo "title: ${{ title }}" > $filename
         echo "url: $GIST_URL" >> $filename
 
         summary=$(echo "${{ github.event.head_commit.message }}" | sed '2d' | paste -sd " " -)
