@@ -10,11 +10,13 @@ import GHC.Generics
 import Data.Yaml (decodeFileThrow, FromJSON)
 import System.Directory (listDirectory)
 import Data.List (sort)
+import Data.Maybe (fromMaybe)
 
 
 data Article = Article { title :: String
                        , url :: String
                        , summary :: String
+                       , date :: Maybe String
                        } deriving (Generic)
 
 instance FromJSON Article
@@ -24,7 +26,10 @@ loadArticles = do
   files <- listDirectory "references"
   -- I would have expected listDirectory to return items natural sorted order, just
   -- like in a terminal ls call
-  flip mapM (reverse $ sort files) $ \file -> decodeFileThrow ("references/" ++ file)
+  flip mapM (reverse $ sort files) $ \file -> do
+    article <- decodeFileThrow ("references/" ++ file)
+    return $ article { date = Just file }
+
 
 data Aside  = Aside { image_url :: String
                     , image_source :: String
@@ -72,8 +77,8 @@ main = do
       <div class="label image_credit">
         image by <a href="#{image_source aside}">#{image_author aside}</a>
 |]
-  writeFile "atom.xml" $ renderHtml [shamlet|
-<?xml version="1.0" encoding="utf-8"?>
+  writeFile "atom.xml" . mappend "<?xml version=\"1.0\" encoding=\"utf-8\"?>" $
+    renderHtml [shamlet|
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>personal code attic
   <subtitle>technical problems, programming examples, quirks of running a Linux system
@@ -87,6 +92,7 @@ main = do
       <title>#{title article}
       <link href="#{url article}"/>
       <summary>#{summary article}
+      <id>tag:mhitza.github.io,#{fromMaybe "1970-00-01" $ date article}:/
 |]
 
 stylesheet = [shamlet|
@@ -218,7 +224,6 @@ stylesheet = [shamlet|
   }
 
   aside {
-    /* http://archive.vn/hmIbO */
     background-position: center;
     background-size: cover;
 
