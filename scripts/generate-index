@@ -62,6 +62,13 @@ main = do
             <a href="#{url article}">
               <h2>#{title article}
             <p>#{summary article}
+        <article>
+          <webring-banner>
+            <p>Member of the <a href="https://webringdemo.netlify.com">Nerds of the 90s</a> webring
+            <a href="https://webringdemo.netlify.com/prev">Previous
+            <a href="https://webringdemo.netlify.com/random">Random
+            <a href="https://webringdemo.netlify.com/next">Next
+          <script async src="https://webringdemo.netlify.com/embed.js" charset="utf-8">
 
     <!-- http://archive.vn/hmIbO -->
     <aside style="background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url('#{image_url aside}')">
