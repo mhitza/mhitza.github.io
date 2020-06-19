@@ -45,6 +45,7 @@ main = do
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <title>personal code attic
+    <link href="atom.xml" type="application/atom+xml" rel="alternate" title="Atom feed" />
     #{stylesheet}
 
   <body>
@@ -70,6 +71,22 @@ main = do
 
       <div class="label image_credit">
         image by <a href="#{image_source aside}">#{image_author aside}</a>
+|]
+  writeFile "atom.xml" $ renderHtml [shamlet|
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>personal code attic
+  <subtitle>technical problems, programming examples, quirks of running a Linux system
+  <link href="https://mhitza.github.io/atom.xml" rel="self" />
+  <link href="https://mhitza.github.io" />
+  <author>
+    <name>Marius Ghita
+
+  $forall article <- articles
+    <entry>
+      <title>#{title article}
+      <link href="#{url article}"/>
+      <summary>#{summary article}
 |]
 
 stylesheet = [shamlet|
