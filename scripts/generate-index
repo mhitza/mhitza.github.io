@@ -130,9 +130,13 @@ stylesheet = [shamlet|
   }
 
   @media only screen and (max-width: 800px) {
+    html {
+      height: 100%;
+    }
     body {
       display: grid;
       grid-template-rows: 50% auto;
+      height: 100%;
     }
 
     main {
