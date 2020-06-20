@@ -127,8 +127,6 @@ stylesheet = [shamlet|
     padding: 0 !important;
     font-size: 18px;
     font-family: 'Lato', sans-serif;
-    height: 100vh;
-    overflow-y: hidden;
   }
 
   @media only screen and (max-width: 800px) {
@@ -139,6 +137,7 @@ stylesheet = [shamlet|
 
     main {
       padding-top: 1rem;
+      padding-bottom: 1rem;
       grid-row-start: 2;
       grid-column-start: 1;
     }
@@ -151,10 +150,18 @@ stylesheet = [shamlet|
   }
 
   @media only screen and (min-width: 800px) {
+    body {
+      height: 100vh;
+      overflow-y: hidden;
+    }
+
     main {
       padding-top: 1rem;
+      padding-bottom: 1rem;
       grid-column-start: 2;
       grid-row-start: 1;
+
+      overflow: auto;
     }
 
     aside {
@@ -194,10 +201,6 @@ stylesheet = [shamlet|
     section {
       width: 960px;
     }
-  }
-
-  main {
-    overflow: auto;
   }
 
   article {

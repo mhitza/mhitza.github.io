@@ -12,20 +12,23 @@ unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+
 html, body {margin: 0 !important;
 padding: 0 !important;
 font-size: 18px;
-font-family: 'Lato', sans-serif;
-height: 100vh;
-overflow-y: hidden;}
+font-family: 'Lato', sans-serif;}
 @media only screen and (max-width: 800px) {body {display: grid;
 grid-template-rows: 50% auto;}
 main {padding-top: 1rem;
+padding-bottom: 1rem;
 grid-row-start: 2;
 grid-column-start: 1;}
 aside {grid-row-start: 1;
 grid-column-start: 1;
 padding-bottom: 0.1rem;}}
-@media only screen and (min-width: 800px) {main {padding-top: 1rem;
+@media only screen and (min-width: 800px) {body {height: 100vh;
+overflow-y: hidden;}
+main {padding-top: 1rem;
+padding-bottom: 1rem;
 grid-column-start: 2;
-grid-row-start: 1;}
+grid-row-start: 1;
+overflow: auto;}
 aside {padding-top: 1rem;
 grid-column-start: 1;
 grid-row-start: 1;
@@ -40,7 +43,6 @@ section {width: 960px;}}
 grid-template-columns: 480px auto;
 font-size: 24px;}
 section {width: 960px;}}
-main {overflow: auto;}
 article {margin-left: 1rem;
 margin-right: 1rem;}
 article a {outline: none;}
