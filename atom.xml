@@ -3,9 +3,15 @@
 <link href="https://mhitza.github.io/atom.xml" rel="self" />
 <link href="https://mhitza.github.io" />
 <id>tag:mhitza.github.io,2000-01-01:/index</id>
-<updated>2020-06-20T08:35:53Z</updated>
+<updated>2021-02-13T20:48:41Z</updated>
 <author><name>Marius Ghita</name>
 </author>
+<entry><title>vim + GNU Guile development environment</title>
+<link href="https://gist.github.com/a00d7900571e9f13bac2bbf4a203d21b" />
+<summary>vim + GNU Guile development environment When following getting started guides for Lisp/Scheme languages, most of the resources I find tend to prefer EMACS instead of vim. Understandable, considering the *almost* built-in development environment you get with EMACS.  However, this is my attempt at trying to create a simple to configure and use scheme development environment using vim.</summary>
+<id>tag:mhitza.github.io,2021-02-13:/</id>
+<updated>2021-02-13T00:00:00Z</updated>
+</entry>
 <entry><title>Using Vimwiki like a standard desktop application</title>
 <link href="https://gist.github.com/74bedf5de1b3ace84d02bb634128193e" />
 <summary>When taking notes I prefer to launch the note-taking application, write a few lines and close the application. Having used Vimwiki for the last few days, I had to create a desktop entry wrapper around it, just to avoid the &quot;Open Terminal first&quot;, step.</summary>
