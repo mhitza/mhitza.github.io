@@ -3,12 +3,12 @@
 <link href="https://mhitza.github.io/atom.xml" rel="self" />
 <link href="https://mhitza.github.io" />
 <id>tag:mhitza.github.io,2000-01-01:/index</id>
-<updated>2021-02-13T20:48:41Z</updated>
+<updated>2021-02-13T20:53:00Z</updated>
 <author><name>Marius Ghita</name>
 </author>
 <entry><title>vim + GNU Guile development environment</title>
 <link href="https://gist.github.com/a00d7900571e9f13bac2bbf4a203d21b" />
-<summary>vim + GNU Guile development environment When following getting started guides for Lisp/Scheme languages, most of the resources I find tend to prefer EMACS instead of vim. Understandable, considering the *almost* built-in development environment you get with EMACS.  However, this is my attempt at trying to create a simple to configure and use scheme development environment using vim.</summary>
+<summary>When following getting started guides for Lisp/Scheme languages, most of the resources I find tend to prefer EMACS instead of vim. Understandable, considering the *almost* built-in development environment you get with EMACS.  However, this is my attempt at trying to create a simple to configure and use scheme development environment using vim.</summary>
 <id>tag:mhitza.github.io,2021-02-13:/</id>
 <updated>2021-02-13T00:00:00Z</updated>
 </entry>
