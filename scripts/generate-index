@@ -36,9 +36,9 @@ data Aside  = Aside { image_url :: String
                     , image_source :: String
                     , image_author :: String
                     }
-aside = Aside { image_url = "https://user-images.githubusercontent.com/273079/80894743-977ade00-8ce6-11ea-86ca-c22d3ecd011e.jpg"
-              , image_source = "https://www.flickr.com/photos/rawmeyn/9376915006/"
-              , image_author = "Roman Königshofer"
+aside = Aside { image_url = "https://user-images.githubusercontent.com/273079/107884622-ac83cf00-6efe-11eb-900d-8a8e51f5cb84.jpg"
+              , image_source = "https://unsplash.com/photos/kbL5N_4-0PY"
+              , image_author = "Dimitar Donovski"
               }
 
 main :: IO ()
@@ -135,7 +135,7 @@ stylesheet = [shamlet|
     }
     body {
       display: grid;
-      grid-template-rows: 50% auto;
+      grid-template-rows: 85% auto;
       height: 100%;
     }
 
