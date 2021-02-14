@@ -36,7 +36,7 @@ data Aside  = Aside { image_url :: String
                     , image_source :: String
                     , image_author :: String
                     }
-aside = Aside { image_url = "https://user-images.githubusercontent.com/273079/107884622-ac83cf00-6efe-11eb-900d-8a8e51f5cb84.jpg"
+aside = Aside { image_url = "https://user-images.githubusercontent.com/273079/107884704-26b45380-6eff-11eb-9f11-a2731bb99bc6.jpg"
               , image_source = "https://unsplash.com/photos/kbL5N_4-0PY"
               , image_author = "Dimitar Donovski"
               }
