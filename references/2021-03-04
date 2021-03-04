@@ -1,0 +1,3 @@
+title: CentOS 8 Stream on your favorite cloud provider
+url: https://gist.github.com/8e859a36f9325f605d27d58cdc446291
+summary: CentOS 8 Stream on your favorite cloud provider I think we're all enthusiastic about the scheduled release of Rocky Linux on the 31st of March. At the same time, I think this is also a good moment to give CentOS 8 Stream a quick test drive with the software we develop and maintain. Just a plan B. Some cloud providers don't yet have Stream images, so I wrote a cloud-init configuration to convert any CentOS 8 distro to CentOS 8 Stream.
