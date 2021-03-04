@@ -33,7 +33,7 @@ jobs:
         echo "title: $title" > $filename
         echo "url: $GIST_URL" >> $filename
 
-        summary=$(echo "${{ github.event.head_commit.message }}" | sed '2d' | paste -sd " " -)
+        summary=$(echo "${{ github.event.head_commit.message }}" | sed -e '2d' | paste -sd " " -)
         echo "summary: $summary" >> $filename
 
         rm post/*
