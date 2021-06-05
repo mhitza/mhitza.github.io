@@ -36,9 +36,9 @@ data Aside  = Aside { image_url :: String
                     , image_source :: String
                     , image_author :: String
                     }
-aside = Aside { image_url = "https://user-images.githubusercontent.com/273079/107885081-db9b4000-6f00-11eb-9967-9d14b043ce32.jpeg"
-              , image_source = "https://unsplash.com/photos/kbL5N_4-0PY"
-              , image_author = "Dimitar Donovski"
+aside = Aside { image_url = "https://user-images.githubusercontent.com/273079/120890836-34d3d000-c5d3-11eb-82f9-819053ab006e.jpg"
+              , image_source = "https://unsplash.com/photos/okVXy9tG3KY"
+              , image_author = "Shifaaz Shamoon"
               }
 
 main :: IO ()
@@ -46,10 +46,11 @@ main = do
   articles <- loadArticles
   writeFile "index.html" $ renderHtml [shamlet|
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head lang="en">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="description" content="a blog of technical problems, programming examples and the quircks of running a Linux system" />
     <title>personal code attic
     <link href="atom.xml" type="application/atom+xml" rel="alternate" title="Atom feed" />
     #{stylesheet}
