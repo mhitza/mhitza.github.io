@@ -1,0 +1,24 @@
+name: Rebuild Index
+on:
+  workflow_dispatch:
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/cache@v1
+      with:
+        path: ~/.stack
+        key: ${{ runner.os }}-stack
+
+    - name: Rebuild index.html
+      run: ./scripts/generate-index
+    
+    - name: Commit changes
+      uses: docker://cdssnc/auto-commit-github-action
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        args: AUTOCOMMIT published post [skip ci]
