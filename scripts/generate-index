@@ -36,9 +36,9 @@ data Aside  = Aside { image_url :: String
                     , image_source :: String
                     , image_author :: String
                     }
-aside = Aside { image_url = "https://user-images.githubusercontent.com/273079/120890836-34d3d000-c5d3-11eb-82f9-819053ab006e.jpg"
-              , image_source = "https://unsplash.com/photos/okVXy9tG3KY"
-              , image_author = "Shifaaz Shamoon"
+aside = Aside { image_url = "https://github-production-user-asset-6210df.s3.amazonaws.com/273079/241918638-fb0ebe14-ea0a-4097-8991-1f3ac88d16ac.jpg"
+              , image_source = "https://unsplash.com/photos/UljbyG2UcVI"
+              , image_author = "Angello Pro"
               }
 
 main :: IO ()
@@ -63,13 +63,6 @@ main = do
             <a href="#{url article}">
               <h2>#{title article}
             <p>#{summary article}
-        <article>
-          <webring-banner>
-            <p>Member of the <a href="https://webringdemo.netlify.com">Nerds of the 90s</a> webring
-            <a href="https://webringdemo.netlify.com/prev">Previous
-            <a href="https://webringdemo.netlify.com/random">Random
-            <a href="https://webringdemo.netlify.com/next">Next
-          <script async src="https://webringdemo.netlify.com/embed.js" charset="utf-8">
 
     <!-- http://archive.vn/hmIbO -->
     <aside style="background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url('#{image_url aside}')">
