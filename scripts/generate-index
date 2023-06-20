@@ -84,7 +84,9 @@ main = do
   let current_date = formatTime defaultTimeLocale "%FT%TZ" t
   let format_article_date = (<> "T00:00:00Z") . fromMaybe "1970-01-01" . date
 
-  writeFile "atom.xml" . mappend "<?xml version=\"1.0\" encoding=\"utf-8\"?>" $
+  writeFile "atom.xml"
+    . mappend "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+    . mappend "<?xml-stylesheet href=\"/atom.xsl\" type=\"text/xsl\"?>" $
     renderHtml [shamlet|
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>personal code attic
