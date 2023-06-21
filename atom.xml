@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>personal code attic</title>
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet href="/atom.xsl" type="text/xsl"?><feed xmlns="http://www.w3.org/2005/Atom"><title>personal code attic</title>
 <subtitle>technical problems, programming examples, quirks of running a Linux system</subtitle>
 <link href="https://mhitza.github.io/atom.xml" rel="self" />
 <link href="https://mhitza.github.io" />
 <id>tag:mhitza.github.io,2000-01-01:/index</id>
-<updated>2023-05-30T09:58:28Z</updated>
+<updated>2023-06-21T00:22:33Z</updated>
 <author><name>Marius Ghita</name>
 </author>
 <entry><title>CentOS 8 Stream on your favorite cloud provider</title>
