@@ -22,8 +22,10 @@ jobs:
     - name: Publish article
       run: |
         title=$(echo "${{ github.event.head_commit.message }}" | head -1)
-        GIST_URL=$(./scripts/publish `pwd`/post ${{ secrets.GIST_API_TOKEN }} "$title")
+        GIST_URL=$(gh gist create post/* --public -d "$title")
         echo "GIST_URL=$GIST_URL" >> $GITHUB_ENV
+      env:
+        GH_TOKEN: ${{ secrets.GIST_API_TOKEN }}
         
     - name: Add article reference
       run: |
@@ -42,8 +44,6 @@ jobs:
       run: |
         ./scripts/generate-index
     
-    - name: Commit changes
-      uses: docker://cdssnc/auto-commit-github-action
+    - uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        github-token: ${{secrets.GITHUB_TOKEN}}
-        args: AUTOCOMMIT published post [skip ci]
+        commit_message: AUTOCOMMIT published post [skip ci]
