@@ -1,175 +1,320 @@
 <!DOCTYPE html>
-<html lang="en"><head lang="en"><meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-<meta name="description" content="a blog of technical problems, programming examples and the quircks of running a Linux system" />
-<title>personal code attic</title>
-<link href="atom.xml" type="application/atom+xml" rel="alternate" title="Atom feed" />
-<style type="text/css">@font-face {font-family: 'Lato';
-font-style: normal;
-font-weight: 400;
-font-display: swap;
-src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wXg.woff2) format('woff2');
-unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
-html, body {margin: 0 !important;
-padding: 0 !important;
-font-size: 18px;
-font-family: 'Lato', sans-serif;}
-@media only screen and (max-width: 800px) {html {height: 100%;}
-body {display: grid;
-grid-template-rows: 85% auto;
-height: 100%;}
-main {padding-top: 1rem;
-padding-bottom: 1rem;
-grid-row-start: 2;
-grid-column-start: 1;}
-aside {grid-row-start: 1;
-grid-column-start: 1;
-padding-bottom: 0.1rem;}}
-@media only screen and (min-width: 800px) {body {height: 100vh;
-overflow-y: hidden;}
-main {padding-top: 1rem;
-padding-bottom: 1rem;
-grid-column-start: 2;
-grid-row-start: 1;
-overflow: auto;}
-aside {padding-top: 1rem;
-grid-column-start: 1;
-grid-row-start: 1;
-max-height: 100%;}}
-@media only screen and (min-width: 800px) and (max-width: 1440px) {body {display: grid;
-grid-template-columns: 35% 65%;}}
-@media only screen and (min-width: 1440px) and (max-width: 1920px) {body {display: grid;
-grid-template-columns: 25% auto;
-font-size: 24px;}
-section {width: 960px;}}
-@media only screen and (min-width: 1920px) {body {display: grid;
-grid-template-columns: 480px auto;
-font-size: 24px;}
-section {width: 960px;}}
-article {margin-left: 1rem;
-margin-right: 1rem;}
-article a {outline: none;}
-article a h2 {text-decoration: underline;}
-article a, article a h2 {font-size: 1.5rem;
-font-weight: normal;
-margin-top: 0;
-margin-bottom: 0;
-display: inline-block;}
-article a:focus + p {display: block;}
-article a:focus h2::before {font-size: 1.45rem;
-margin-right: 0.2rem;
-content: '☞';
-/** the magic of css http://archive.vn/cCUEE */
-display: inline-block;
-color: black;}
-article a:hover + p {display: block;}
-article p {font-size: 1.0rem;
-text-align: justify;
-margin-top: 0;
-/* display: none; */}
-a {color: dodgerblue;}
-a:active, a:visited {color: purple;}
-aside {background-position: center;
-background-size: cover;
-display: flex;
-flex-flow: column;
-flex-direction: column;
-justify-content: flex-end;
-position: relative;}
-aside .tooltip {position: absolute;
-top: 1rem;
-right: 1rem;
-background-color: white;
-color: black;
-font-weight: bold;
-opacity: 75%;
-padding: 0.5rem;
-font-size: 0.7rem;
-border-radius: 2px;}
-.tooltip::after {content: " ";
-position: absolute;
-top: 50%;
-left: 100%; /* To the right of the tooltip */
-opacity: 75%;
-margin-top: -8px;
-border-width: 8px;
-border-style: solid;
-border-color: transparent transparent transparent white;}
-aside a, aside a:visited {color: white}
-.label {color: white;
-padding-left: 1rem;
-padding-right: 1rem;
-font-size: 0.7rem;}
-h1 {margin-top: 0;
-margin-bottom: 0.5rem;
-padding: 0.1rem 0.4rem 0.2rem 0.4rem;
-background-color: black;
-display: inline-block;
-font-size: 2rem;}
-.label span {background-color: black;
-padding: 0.1rem 0.4rem 0.2rem 0.4rem;
-margin: 0;
-line-height: 1.7rem;
-white-space: nowrap;
-font-size: 1rem;}
-.image_credit {padding-left: 1.2rem;
-margin-bottom: 0.5rem !important;}
-hr {width: 100%;
-border: 0;
-border-top: 1px dashed white;}</style>
-</head>
-<body><main><section><article><a href="https://gist.github.com/mhitza/b6eb99314b45444e531ead74aa9ec406"><h2>Two lines of shell script in 4 hours of custom Ansible module development</h2>
-</a>
-<p>Two lines of shell script in 4 hours of custom Ansible module development</p>
-</article>
-<article><a href="https://gist.github.com/8e859a36f9325f605d27d58cdc446291"><h2>CentOS 8 Stream on your favorite cloud provider</h2>
-</a>
-<p>I think we&#39;re all enthusiastic about the scheduled release of Rocky Linux on the 31st of March. At the same time, I think this is also a good moment to give CentOS 8 Stream a quick test drive with the software we develop and maintain. Just a plan B. Some cloud providers don&#39;t yet have Stream images, so I wrote a cloud-init configuration to convert any CentOS 8 distro to CentOS 8 Stream.</p>
-</article>
-<article><a href="https://gist.github.com/a00d7900571e9f13bac2bbf4a203d21b"><h2>vim + GNU Guile development environment</h2>
-</a>
-<p>When following getting started guides for Lisp/Scheme languages, most of the resources I find tend to prefer EMACS instead of vim. Understandable, considering the *almost* built-in development environment you get with EMACS.  However, this is my attempt at trying to create a simple to configure and use scheme development environment using vim.</p>
-</article>
-<article><a href="https://gist.github.com/74bedf5de1b3ace84d02bb634128193e"><h2>Using Vimwiki like a standard desktop application</h2>
-</a>
-<p>When taking notes I prefer to launch the note-taking application, write a few lines and close the application. Having used Vimwiki for the last few days, I had to create a desktop entry wrapper around it, just to avoid the &quot;Open Terminal first&quot;, step.</p>
-</article>
-<article><a href="https://gist.github.com/5f3be54ac59d7f0652bd9b803b79f70c"><h2>Faster Ansible playbook iteration with tags and Vagrant snapshots</h2>
-</a>
-<p>In the last few months, I had to write multiple Ansible playbooks, to the point that the slow write/test cycle became a major annoyance. What seemed to work well for me was a mix between Ansible tags and Vagrant snapshots.</p>
-</article>
-<article><a href="https://gist.github.com/mhitza/c454f5d8a30edb122f56bc67ffb386be"><h2>Prolong keyboard backlight timeout</h2>
-</a>
-<p>Frustrated by some weird default keyboard backlight timeout on your laptop under Linux? I know how you feel, had the same frustration with my Dell laptop until I found a workaround.</p>
-</article>
-<article><a href="https://gist.github.com/mhitza/15a56a20ac80b456cda6"><h2>LVM snapshots</h2>
-</a>
-<p>A great feature to use when experimenting with different system setups. I no longer have to worry about polluting my system with extra packages when I want to test a new desktop environment, or a new driver version, or even a botched system installation. With LVM I can just snapshot a working system and restore just as easily if something goes wrong.</p>
-</article>
-<article><a href="https://gist.github.com/mhitza/8a4608f4dfdec20d3879"><h2>Programming Arduino Uno (ATmega386P) in assembly</h2>
-</a>
-<p>After reading various sources on the topic I&#39;ve written a few notes, and a sample project, to illustrate a working setup for the task. Also tried to go a little more in depth in certain parts, to clear up some confusion I&#39;ve dealt with when researching the topic.</p>
-</article>
-<article><a href="https://gist.github.com/mhitza/81651f49b3a43e6f4554"><h2>How to connect your PSP on Linux</h2>
-</a>
-<p>A few common debugging steps you can try if it doesn&#39;t get automounted like it normally should.</p>
-</article>
-<article><a href="https://gist.github.com/mhitza/189cdecacb93ecd83f29"><h2>Sculpin for Github pages</h2>
-</a>
-<p>A simple repository setup that I&#39;ve used in the past for static blog publishing via Sculpin. The model is inspired by the way Octopress does it&#39;s repository setup.</p>
-</article>
-</section>
-</main>
+<html lang="en">
+  <head lang="en">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="description" content="a blog of technical problems, programming examples and the quircks of running a Linux system" />
+    <title>personal code attic</title>
+    <link href="atom.xml" type="application/atom+xml" rel="alternate" title="Atom feed" />
+    <style type="text/css">
+      @font-face {
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wXg.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
 
-<aside style="background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url('https://github-production-user-asset-6210df.s3.amazonaws.com/273079/241918638-fb0ebe14-ea0a-4097-8991-1f3ac88d16ac.jpg')"><span class="tooltip" style="display: none">&lt;TAB&gt; navigation</span>
-<div class="label"><h1>personal code attic</h1>
-</div>
-<div class="label"><span>technical problems</span>
-<span>programming examples</span>
-<span>quirks of running a Linux system</span>
-</div>
-<hr>
-<div class="label image_credit">image by <a href="https://unsplash.com/photos/UljbyG2UcVI">Angello Pro</a></div>
-</aside>
-</body>
+      html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 18px;
+        font-family: 'Lato', sans-serif;
+      }
+
+      @media only screen and (max-width: 800px) {
+        html {
+          height: 100%;
+        }
+        body {
+          display: grid;
+          grid-template-rows: 85% auto;
+          height: 100%;
+        }
+
+        main {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+          grid-row-start: 2;
+          grid-column-start: 1;
+        }
+
+        aside {
+          grid-row-start: 1;
+          grid-column-start: 1;
+          padding-bottom: 0.1rem;
+        }
+      }
+
+      @media only screen and (min-width: 800px) {
+        body {
+          height: 100vh;
+          overflow-y: hidden;
+        }
+
+        main {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+          grid-column-start: 2;
+          grid-row-start: 1;
+
+          overflow: auto;
+        }
+
+        aside {
+          padding-top: 1rem;
+          grid-column-start: 1;
+          grid-row-start: 1;
+          max-height: 100%;
+        }
+      }
+
+      @media only screen and (min-width: 800px) and (max-width: 1440px) {
+        body {
+          display: grid;
+          grid-template-columns: 35% 65%;
+        }
+      }
+
+      @media only screen and (min-width: 1440px) and (max-width: 1920px) {
+        body {
+          display: grid;
+          grid-template-columns: 25% auto;
+          font-size: 24px;
+        }
+
+        section {
+          width: 960px;
+        }
+      }
+
+      @media only screen and (min-width: 1920px) {
+        body {
+          display: grid;
+          grid-template-columns: 480px auto;
+          font-size: 24px;
+        }
+
+        section {
+          width: 960px;
+        }
+      }
+
+      article {
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+
+      article a {
+        outline: none;
+      }
+
+      article a h2 {
+        text-decoration: underline;
+      }
+
+      article a, article a h2 {
+        font-size: 1.5rem;
+        font-weight: normal;
+        margin-top: 0;
+        margin-bottom: 0;
+        display: inline-block;
+      }
+
+      article a:focus + p {
+        display: block;
+      }
+
+      article a:focus h2::before {
+        font-size: 1.45rem;
+        margin-right: 0.2rem;
+        content: '☞';
+        /** the magic of css http://archive.vn/cCUEE */
+        display: inline-block;
+        color: black;
+      }
+
+      article a:hover + p {
+        display: block;
+      }
+
+      article p {
+        font-size: 1.0rem;
+        text-align: justify;
+        margin-top: 0;
+        /* display: none; */
+      }
+
+      a {
+        color: dodgerblue;
+      }
+      a:active, a:visited {
+        color: purple;
+      }
+
+      aside {
+        background-position: center;
+        background-size: cover;
+
+        display: flex;
+        flex-flow: column;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        position: relative;
+      }
+
+      aside .tooltip {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        opacity: 75%;
+        padding: 0.5rem;
+        font-size: 0.7rem;
+        border-radius: 2px;
+      }
+      .tooltip::after {
+        content: " ";
+        position: absolute;
+        top: 50%;
+        left: 100%; /* To the right of the tooltip */
+        opacity: 75%;
+        margin-top: -8px;
+        border-width: 8px;
+        border-style: solid;
+        border-color: transparent transparent transparent white;
+      }
+
+      aside a, aside a:visited {
+        color: white
+      }
+
+      .label {
+        color: white;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: 0.7rem;
+      }
+
+      h1 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        padding: 0.1rem 0.4rem 0.2rem 0.4rem;
+        background-color: black;
+        display: inline-block;
+        font-size: 2rem;
+      }
+
+      .label span {
+        background-color: black;
+        padding: 0.1rem 0.4rem 0.2rem 0.4rem;
+        margin: 0;
+        line-height: 1.7rem;
+        white-space: nowrap;
+        font-size: 1rem;
+      }
+
+      .image_credit {
+        padding-left: 1.2rem;
+        margin-bottom: 0.5rem !important;
+      }
+
+      hr {
+        width: 100%;
+        border: 0;
+        border-top: 1px dashed white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <section>
+                  <article>
+            <a href="https://gist.github.com/mhitza/b6eb99314b45444e531ead74aa9ec406">
+              <h2>Two lines of shell script in 4 hours of custom Ansible module development</h2>
+            </a>
+            <p></p>
+          </article>
+                  <article>
+            <a href="https://gist.github.com/8e859a36f9325f605d27d58cdc446291">
+              <h2>CentOS 8 Stream on your favorite cloud provider</h2>
+            </a>
+            <p>I think we're all enthusiastic about the scheduled release of Rocky Linux on the 31st of March. At the same time, I think this is also a good moment to give CentOS 8 Stream a quick test drive with the software we develop and maintain. Just a plan B. Some cloud providers don't yet have Stream images, so I wrote a cloud-init configuration to convert any CentOS 8 distro to CentOS 8 Stream.</p>
+          </article>
+                  <article>
+            <a href="https://gist.github.com/a00d7900571e9f13bac2bbf4a203d21b">
+              <h2>vim + GNU Guile development environment</h2>
+            </a>
+            <p>When following getting started guides for Lisp/Scheme languages, most of the resources I find tend to prefer EMACS instead of vim. Understandable, considering the *almost* built-in development environment you get with EMACS.  However, this is my attempt at trying to create a simple to configure and use scheme development environment using vim.</p>
+          </article>
+                  <article>
+            <a href="https://gist.github.com/74bedf5de1b3ace84d02bb634128193e">
+              <h2>Using Vimwiki like a standard desktop application</h2>
+            </a>
+            <p>When taking notes I prefer to launch the note-taking application, write a few lines and close the application. Having used Vimwiki for the last few days, I had to create a desktop entry wrapper around it, just to avoid the "Open Terminal first", step.</p>
+          </article>
+                  <article>
+            <a href="https://gist.github.com/5f3be54ac59d7f0652bd9b803b79f70c">
+              <h2>Faster Ansible playbook iteration with tags and Vagrant snapshots</h2>
+            </a>
+            <p>In the last few months, I had to write multiple Ansible playbooks, to the point that the slow write/test cycle became a major annoyance. What seemed to work well for me was a mix between Ansible tags and Vagrant snapshots.</p>
+          </article>
+                  <article>
+            <a href="https://gist.github.com/mhitza/c454f5d8a30edb122f56bc67ffb386be">
+              <h2>Prolong keyboard backlight timeout</h2>
+            </a>
+            <p>Frustrated by some weird default keyboard backlight timeout on your laptop under Linux? I know how you feel, had the same frustration with my Dell laptop until I found a workaround.</p>
+          </article>
+                  <article>
+            <a href="https://gist.github.com/mhitza/15a56a20ac80b456cda6">
+              <h2>LVM snapshots</h2>
+            </a>
+            <p>A great feature to use when experimenting with different system setups. I no longer have to worry about polluting my system with extra packages when I want to test a new desktop environment, or a new driver version, or even a botched system installation. With LVM I can just snapshot a working system and restore just as easily if something goes wrong.</p>
+          </article>
+                  <article>
+            <a href="https://gist.github.com/mhitza/8a4608f4dfdec20d3879">
+              <h2>Programming Arduino Uno (ATmega386P) in assembly</h2>
+            </a>
+            <p>After reading various sources on the topic I've written a few notes, and a sample project, to illustrate a working setup for the task. Also tried to go a little more in depth in certain parts, to clear up some confusion I've dealt with when researching the topic.</p>
+          </article>
+                  <article>
+            <a href="https://gist.github.com/mhitza/81651f49b3a43e6f4554">
+              <h2>How to connect your PSP on Linux</h2>
+            </a>
+            <p>A few common debugging steps you can try if it doesn't get automounted like it normally should.</p>
+          </article>
+                  <article>
+            <a href="https://gist.github.com/mhitza/189cdecacb93ecd83f29">
+              <h2>Sculpin for Github pages</h2>
+            </a>
+            <p>A simple repository setup that I've used in the past for static blog publishing via Sculpin. The model is inspired by the way Octopress does it's repository setup.</p>
+          </article>
+              </section>
+    </main>
+
+    <!-- http://archive.vn/hmIbO -->
+    <aside style="background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url('https://github.com/mhitza/mhitza.github.io/assets/273079/35b66b53-700f-4490-86fe-a6a002f51640')">
+      <span class="tooltip" style="display: none">
+        &lt;TAB&gt; navigation
+      </span>
+      <div class="label">
+        <h1>personal code attic</h1>
+      </div>
+      <div class="label">
+        <span>technical problems</span>
+        <span>programming examples</span>
+        <span>quirks of running a Linux system</span>
+      </div>
+      <hr>
+
+      <div class="label image_credit">
+        image by <a href="https://unsplash.com/photos/5ui0tfMC5ts">Roberto Nickson</a>
+      </div>
+    </aside>
+  </body>
 </html>

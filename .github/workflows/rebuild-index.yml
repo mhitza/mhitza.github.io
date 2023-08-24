@@ -9,13 +9,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - uses: actions/cache@v1
-      with:
-        path: ~/.stack
-        key: ${{ runner.os }}-stack
-
     - name: Rebuild index.html
-      run: ./scripts/generate-index
+      run: ./scripts/generate-index && ./scripts/generate-atom
     
     - uses: EndBug/add-and-commit@v9
       with:

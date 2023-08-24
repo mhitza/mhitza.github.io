@@ -1,0 +1,43 @@
+#!/usr/bin/env php 
+<?php
+$entries = [];
+
+foreach(scandir("references/", SCANDIR_SORT_DESCENDING) as $reference) {
+  if (in_array($reference, [".", ".."])) {
+    continue;
+  }
+  $lines = file("references/$reference");
+  $entries[] = [
+    'date'    => $reference,
+    'title'   => trim(substr($lines[0], 6)),
+    'url'     => trim(substr($lines[1], 4)),
+    'summary' => trim(substr($lines[2], 8)),
+  ];
+}
+
+date_default_timezone_set('Etc/UTC');
+ob_start();
+?>
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="/atom.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>personal code attic</title>
+  <subtitle>technical problems, programming examples, quirks of running a Linux system</subtitle>
+  <link href="https://mhitza.github.io/atom.xml" rel="self" />
+  <link href="https://mhitza.github.io" />
+  <id>tag:mhitza.github.io,2000-01-01:/index</id>
+  <updated><?php echo date('Y-m-d\TH:i:s\Z'); ?></updated>
+  <author>
+    <name>Marius Ghița</name>
+  </author>
+<?php foreach($entries as $entry): ?>
+  <entry>
+    <title><?php echo $entry['title']; ?></title>
+    <link href="<?php echo $entry['url']; ?>"/>
+    <summary><?php echo $entry['summary']; ?></summary>
+    <id>tag:mhitza.github.io,<?php echo $entry['date']; ?>:/
+    <updated><?php echo date('Y-m-d\T00:00:00\Z', strtotime($entry['date'])); ?></updated>
+  </entry>
+<?php endforeach; ?>
+</feed>
+<?php file_put_contents("atom.xml", ob_get_clean()); ?>
