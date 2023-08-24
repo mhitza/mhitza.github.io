@@ -35,7 +35,7 @@ ob_start();
     <title><?php echo $entry['title']; ?></title>
     <link href="<?php echo $entry['url']; ?>"/>
     <summary><?php echo $entry['summary']; ?></summary>
-    <id>tag:mhitza.github.io,<?php echo $entry['date']; ?>:/
+    <id>tag:mhitza.github.io,<?php echo $entry['date']; ?>:/</id>
     <updated><?php echo date('Y-m-d\T00:00:00\Z', strtotime($entry['date'])); ?></updated>
   </entry>
 <?php endforeach; ?>
