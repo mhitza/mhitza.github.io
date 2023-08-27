@@ -211,8 +211,9 @@ ob_start();
       aside .profile {
         position: absolute;
         font-size: 1rem;
+        top: 0.5rem;
         left: 1rem;
-        top: 1rem;
+        color: white;
       }
 
       aside a, aside a:visited {
@@ -273,11 +274,10 @@ ob_start();
         <?php endforeach; ?>
       </section>
     </main>
-
     <!-- http://archive.vn/hmIbO -->
     <aside style="background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url('<?php echo $image['url']; ?>')">
-      <div class="profile">
-        <a href="https://github.com/mhitza">goto my profile</a>
+      <div class="profile">goto:
+        <a href="https://github.com/mhitza">my profile</a>,  <a href="/atom.xml">atom feed</a>
       </div>
       <div class="label">
         <h1>personal code attic</h1>
