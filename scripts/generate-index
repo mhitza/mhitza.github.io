@@ -6,6 +6,13 @@ $image = [
   'author' => "Roberto Nickson"
 ];
 
+$image_tmp = tempnam("/tmp", "image");
+$out_tmp = tempnam("/tmp", "out") . ".txt";
+file_put_contents($image_tmp, file_get_contents($image['url']));
+exec("convert $image_tmp -resize 1x1 $out_tmp");
+preg_match('/#[A-Z0-9]+/', file_get_contents($out_tmp), $matches);
+$average_hex = $matches[0];
+
 $entries = [];
 
 foreach(scandir("references/", SCANDIR_SORT_DESCENDING) as $reference) {
@@ -30,6 +37,7 @@ ob_start();
     <meta name="description" content="a blog of technical problems, programming examples and the quircks of running a Linux system" />
     <title>personal code attic</title>
     <link href="atom.xml" type="application/atom+xml" rel="alternate" title="Atom feed" />
+    <meta name="theme-color" value="<?php echo $average_hex; ?>">
     <style type="text/css">
       @font-face {
         font-family: 'Lato';
