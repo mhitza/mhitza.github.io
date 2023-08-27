@@ -7,10 +7,8 @@ $image = [
 ];
 
 $image_tmp = tempnam("/tmp", "image");
-$out_tmp = tempnam("/tmp", "out") . ".txt";
 file_put_contents($image_tmp, file_get_contents($image['url']));
-exec("convert $image_tmp -resize 1x1 $out_tmp");
-preg_match('/#[A-Z0-9]+/', file_get_contents($out_tmp), $matches);
+preg_match('/#[A-Z0-9]+/', exec("convert $image_tmp -resize 1x1 txt:-"), $matches);
 $average_hex = $matches[0];
 
 $entries = [];
