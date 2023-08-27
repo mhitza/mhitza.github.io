@@ -37,7 +37,7 @@ ob_start();
     <meta name="description" content="a blog of technical problems, programming examples and the quircks of running a Linux system" />
     <title>personal code attic</title>
     <link href="atom.xml" type="application/atom+xml" rel="alternate" title="Atom feed" />
-    <meta name="theme-color" value="<?php echo $average_hex; ?>">
+    <meta name="theme-color" content="<?php echo $average_hex; ?>">
     <style type="text/css">
       @font-face {
         font-family: 'Lato';
