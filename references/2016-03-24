@@ -1,3 +1,3 @@
 title: LVM snapshots
 url: https://gist.github.com/mhitza/15a56a20ac80b456cda6
-summary: A great feature to use when experimenting with different system setups. I no longer have to worry about polluting my system with extra packages when I want to test a new desktop environment, or a new driver version, or even a botched system installation. With LVM I can just snapshot a working system and restore just as easily if something goes wrong.
+summary: A great feature to use when experimenting with different system setups. I no longer have to worry about polluting my system with extra packages when I want to test a new desktop environment, or a new driver version, or even a botched system installation. With LVM I can snapshot a working system and restore it if something goes wrong.

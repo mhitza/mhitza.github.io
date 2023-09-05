@@ -1,3 +1,3 @@
 title: Programming Arduino Uno (ATmega386P) in assembly
 url: https://gist.github.com/mhitza/8a4608f4dfdec20d3879
-summary: After reading various sources on the topic I've written a few notes, and a sample project, to illustrate a working setup for the task. Also tried to go a little more in depth in certain parts, to clear up some confusion I've dealt with when researching the topic.
+summary: After reading various sources on the topic I've written notes, and a sample project, to illustrate a working setup for the task. Also tried to go a little more in depth in certain parts, to clear up some confusion I've dealt with when researching the topic.
