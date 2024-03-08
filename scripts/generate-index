@@ -1,9 +1,9 @@
 #!/usr/bin/env php
 <?php
 $image = [
-  'url'    => "https://github.com/mhitza/mhitza.github.io/assets/273079/cb13f228-adee-46ab-a58d-2c853d49c50e",
-  'source' => "https://unsplash.com/photos/brown-forest-a_K7R1kugUE",
-  'author' => "Andrew Neel"
+  'url'    => "https://github.com/mhitza/mhitza.github.io/assets/273079/40440124-ee24-468b-b182-520d04f04a1d",
+  'source' => "https://unsplash.com/photos/scenery-of-road-cmeNXKhTSIw",
+  'author' => "Luke Stackpoole"
 ];
 
 $image_tmp = "/tmp/blog_header_image";
