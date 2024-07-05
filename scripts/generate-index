@@ -1,9 +1,9 @@
 #!/usr/bin/env php
 <?php
 $image = [
-  'url'    => "https://github.com/mhitza/mhitza.github.io/assets/273079/40440124-ee24-468b-b182-520d04f04a1d",
-  'source' => "https://unsplash.com/photos/scenery-of-road-cmeNXKhTSIw",
-  'author' => "Luke Stackpoole"
+  'url'    => "https://github.com/mhitza/mhitza.github.io/assets/273079/a53bb62d-e519-498e-9f86-3a23a9fbaa9b",
+  'source' => "https://unsplash.com/photos/green-leafed-trees-during-daytime-_EMkxLdko9k",
+  'author' => "Filip Zrnzević"
 ];
 
 $image_tmp = "/tmp/blog_header_image";
