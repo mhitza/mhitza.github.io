@@ -6,14 +6,14 @@
   <link href="https://mhitza.github.io/atom.xml" rel="self" />
   <link href="https://mhitza.github.io" />
   <id>tag:mhitza.github.io,2000-01-01:/index</id>
-  <updated>2024-08-25T17:48:49Z</updated>
+  <updated>2024-08-25T17:51:50Z</updated>
   <author>
     <name>Marius Ghița</name>
   </author>
   <entry>
     <title>Tweaking desktop mode on the Steam Deck</title>
     <link href="https://gist.github.com/mhitza/ddfe3b52ce529039a89747afb8b11e44"/>
-    <summary>Tweaking desktop mode on the Steam Deck The Steam Deck is a great piece of techonolgy, and very versatile thanks to the fact that its easy to switch to desktop mode. However the default configuration is rather limited, and there are a set of customizations I had to apply to make it fit my workflows.</summary>
+    <summary>The Steam Deck is a great piece of techonolgy, and very versatile thanks to the fact that its easy to switch to desktop mode. However the default configuration is rather limited, and there are a set of customizations I had to apply to make it fit my workflows.</summary>
     <id>tag:mhitza.github.io,2024-08-25:/</id>
     <updated>2024-08-25T00:00:00Z</updated>
   </entry>
