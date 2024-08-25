@@ -6,10 +6,17 @@
   <link href="https://mhitza.github.io/atom.xml" rel="self" />
   <link href="https://mhitza.github.io" />
   <id>tag:mhitza.github.io,2000-01-01:/index</id>
-  <updated>2023-08-24T23:51:23Z</updated>
+  <updated>2024-08-25T17:48:49Z</updated>
   <author>
     <name>Marius Ghița</name>
   </author>
+  <entry>
+    <title>Tweaking desktop mode on the Steam Deck</title>
+    <link href="https://gist.github.com/mhitza/ddfe3b52ce529039a89747afb8b11e44"/>
+    <summary>Tweaking desktop mode on the Steam Deck The Steam Deck is a great piece of techonolgy, and very versatile thanks to the fact that its easy to switch to desktop mode. However the default configuration is rather limited, and there are a set of customizations I had to apply to make it fit my workflows.</summary>
+    <id>tag:mhitza.github.io,2024-08-25:/</id>
+    <updated>2024-08-25T00:00:00Z</updated>
+  </entry>
   <entry>
     <title>Two lines of shell script in 4 hours of custom Ansible module development</title>
     <link href="https://gist.github.com/mhitza/b6eb99314b45444e531ead74aa9ec406"/>
@@ -27,21 +34,21 @@
   <entry>
     <title>vim + GNU Guile development environment</title>
     <link href="https://gist.github.com/a00d7900571e9f13bac2bbf4a203d21b"/>
-    <summary>When following getting started guides for Lisp/Scheme languages, most of the resources I find tend to prefer EMACS instead of vim. Understandable, considering the *almost* built-in development environment you get with EMACS.  However, this is my attempt at trying to create a simple to configure and use scheme development environment using vim.</summary>
+    <summary>When following getting started guides for Lisp/Scheme languages, most of the resources I find tend to prefer EMACS instead of vim. Understandable, considering the *almost* built-in development environment you get with EMACS.  This is my attempt at trying to setup, and use, a scheme development environment using vim.</summary>
     <id>tag:mhitza.github.io,2021-02-13:/</id>
     <updated>2021-02-13T00:00:00Z</updated>
   </entry>
   <entry>
     <title>Using Vimwiki like a standard desktop application</title>
     <link href="https://gist.github.com/74bedf5de1b3ace84d02bb634128193e"/>
-    <summary>When taking notes I prefer to launch the note-taking application, write a few lines and close the application. Having used Vimwiki for the last few days, I had to create a desktop entry wrapper around it, just to avoid the "Open Terminal first", step.</summary>
+    <summary>When taking notes I prefer to launch a note-taking application, write a line, or two, then close the application. Having used Vimwiki for a couple of days, I had to create a desktop entry wrapper around it, just to avoid the "Open Terminal first", step.</summary>
     <id>tag:mhitza.github.io,2020-06-19:/</id>
     <updated>2020-06-19T00:00:00Z</updated>
   </entry>
   <entry>
     <title>Faster Ansible playbook iteration with tags and Vagrant snapshots</title>
     <link href="https://gist.github.com/5f3be54ac59d7f0652bd9b803b79f70c"/>
-    <summary>In the last few months, I had to write multiple Ansible playbooks, to the point that the slow write/test cycle became a major annoyance. What seemed to work well for me was a mix between Ansible tags and Vagrant snapshots.</summary>
+    <summary>Last couple of months, I had to write a large amount of Ansible playbooks, to the point that the slow write/test cycle became a major annoyance. What seemed to work well for me was a mix between Ansible tags and Vagrant snapshots.</summary>
     <id>tag:mhitza.github.io,2020-05-07:/</id>
     <updated>2020-05-07T00:00:00Z</updated>
   </entry>
@@ -55,28 +62,28 @@
   <entry>
     <title>LVM snapshots</title>
     <link href="https://gist.github.com/mhitza/15a56a20ac80b456cda6"/>
-    <summary>A great feature to use when experimenting with different system setups. I no longer have to worry about polluting my system with extra packages when I want to test a new desktop environment, or a new driver version, or even a botched system installation. With LVM I can just snapshot a working system and restore just as easily if something goes wrong.</summary>
+    <summary>A great feature to use when experimenting with different system setups. I no longer have to worry about polluting my system with extra packages when I want to test a new desktop environment, or a new driver version, or even a botched system installation. With LVM I can snapshot a working system and restore it if something goes wrong.</summary>
     <id>tag:mhitza.github.io,2016-03-24:/</id>
     <updated>2016-03-24T00:00:00Z</updated>
   </entry>
   <entry>
     <title>Programming Arduino Uno (ATmega386P) in assembly</title>
     <link href="https://gist.github.com/mhitza/8a4608f4dfdec20d3879"/>
-    <summary>After reading various sources on the topic I've written a few notes, and a sample project, to illustrate a working setup for the task. Also tried to go a little more in depth in certain parts, to clear up some confusion I've dealt with when researching the topic.</summary>
+    <summary>After reading various sources on the topic I've written notes, and a sample project, to illustrate a working setup for the task. Also tried to go a little more in depth in certain parts, to clear up some confusion I've dealt with when researching the topic.</summary>
     <id>tag:mhitza.github.io,2015-10-21:/</id>
     <updated>2015-10-21T00:00:00Z</updated>
   </entry>
   <entry>
     <title>How to connect your PSP on Linux</title>
     <link href="https://gist.github.com/mhitza/81651f49b3a43e6f4554"/>
-    <summary>A few common debugging steps you can try if it doesn't get automounted like it normally should.</summary>
+    <summary>Common debugging steps you can try if it doesn't get automounted like it should.</summary>
     <id>tag:mhitza.github.io,2015-10-09:/</id>
     <updated>2015-10-09T00:00:00Z</updated>
   </entry>
   <entry>
     <title>Sculpin for Github pages</title>
     <link href="https://gist.github.com/mhitza/189cdecacb93ecd83f29"/>
-    <summary>A simple repository setup that I've used in the past for static blog publishing via Sculpin. The model is inspired by the way Octopress does it's repository setup.</summary>
+    <summary>Repository setup that I've used in the past for static blog publishing via Sculpin. Model inspired by Octopress in it's repository setup.</summary>
     <id>tag:mhitza.github.io,2015-10-08:/</id>
     <updated>2015-10-08T00:00:00Z</updated>
   </entry>
