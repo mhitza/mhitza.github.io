@@ -1,9 +1,9 @@
 #!/usr/bin/env php
 <?php
 $image = [
-  'url'    => "https://github.com/mhitza/mhitza.github.io/assets/273079/a53bb62d-e519-498e-9f86-3a23a9fbaa9b",
-  'source' => "https://unsplash.com/photos/green-leafed-trees-during-daytime-_EMkxLdko9k",
-  'author' => "Filip Zrnzević"
+  'url'    => "https://github.com/user-attachments/assets/db036ae2-9919-4976-9182-c0f437896ba2",
+  'source' => "https://unsplash.com/photos/purple-and-white-lighted-pendant-lamps-kL3u4Tqfn1s",
+  'author' => "Ray ZHUANG"
 ];
 
 $image_tmp = "/tmp/blog_header_image";
@@ -11,7 +11,7 @@ if (!file_exists($image_tmp)) {
     file_put_contents($image_tmp, file_get_contents($image['url']));
 }
 
-preg_match('/#[A-Z0-9]+/', exec("convert $image_tmp -resize 1x1 txt:-"), $matches);
+preg_match('/#[A-Z0-9]+/', exec("magick $image_tmp -resize 1x1 txt:-"), $matches);
 $average_hex = $matches[0];
 $entries = [];
 
