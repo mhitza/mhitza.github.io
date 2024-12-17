@@ -6,7 +6,7 @@
     <meta name="description" content="a blog of technical problems, programming examples and the quirks of running a Linux system" />
     <title>personal code attic</title>
     <link href="atom.xml" type="application/atom+xml" rel="alternate" title="Atom feed" />
-    <meta name="theme-color" content="#1E1724">
+    <meta name="theme-color" content="#1D1723">
     <link rel="icon" type="image/webp" href="/assets/favicon.webp">
     <style>
       /* latin */
@@ -81,10 +81,6 @@
           max-height: 100%;
         }
 
-        section {
-          max-width: 700px;
-        }
-
         .image_credit {
             margin-bottom: 1.5rem;
         }
@@ -127,7 +123,7 @@
         text-decoration: underline;
       }
 
-      article a, article a h2 {
+      article > a, article a h2 {
         font-size: 1.5rem;
         font-weight: normal;
         margin-top: 0;
@@ -155,6 +151,12 @@
       article p {
         font-size: 1.0rem;
         margin-top: 0;
+        max-width: 65ch;
+      }
+
+      article p.clip {
+        overflow-x: hidden;
+        text-wrap: nowrap;
       }
 
       a {
@@ -225,7 +227,7 @@
       }
 
       .image_credit {
-        padding-left: 1.2rem;
+        padding-left: 1.4rem;
       }
 
       hr {
@@ -233,82 +235,50 @@
         border: 0;
         border-top: 1px dashed white;
       }
+
     </style>
   </head>
 
   <body>
     <main>
-      <section>
-        <div class="tooltip">
-          <kbd>TAB</kbd>/<kbd>SHIFT-TAB</kbd> navigation
-        </div>
-                  <article>
-            <a href="https://gist.github.com/mhitza/ddfe3b52ce529039a89747afb8b11e44">
-              <h2>Tweaking desktop mode on the Steam Deck</h2>
-            </a>
-            <p>The Steam Deck is a great piece of techonolgy, and very versatile thanks to the fact that its easy to switch to desktop mode. However the default configuration is rather limited, and there are a set of customizations I had to apply to make it fit my workflows.</p>
-          </article>
-                  <article>
-            <a href="https://gist.github.com/mhitza/b6eb99314b45444e531ead74aa9ec406">
-              <h2>Two lines of shell script in 4 hours of custom Ansible module development</h2>
-            </a>
-            <p></p>
-          </article>
-                  <article>
-            <a href="https://gist.github.com/8e859a36f9325f605d27d58cdc446291">
-              <h2>CentOS 8 Stream on your favorite cloud provider</h2>
-            </a>
-            <p>I think we're all enthusiastic about the scheduled release of Rocky Linux on the 31st of March. At the same time, I think this is also a good moment to give CentOS 8 Stream a quick test drive with the software we develop and maintain. Just a plan B. Some cloud providers don't yet have Stream images, so I wrote a cloud-init configuration to convert any CentOS 8 distro to CentOS 8 Stream.</p>
-          </article>
-                  <article>
-            <a href="https://gist.github.com/a00d7900571e9f13bac2bbf4a203d21b">
-              <h2>vim + GNU Guile development environment</h2>
-            </a>
-            <p>When following getting started guides for Lisp/Scheme languages, most of the resources I find tend to prefer EMACS instead of vim. Understandable, considering the *almost* built-in development environment you get with EMACS.  This is my attempt at trying to setup, and use, a scheme development environment using vim.</p>
-          </article>
-                  <article>
-            <a href="https://gist.github.com/74bedf5de1b3ace84d02bb634128193e">
-              <h2>Using Vimwiki like a standard desktop application</h2>
-            </a>
-            <p>When taking notes I prefer to launch a note-taking application, write a line, or two, then close the application. Having used Vimwiki for a couple of days, I had to create a desktop entry wrapper around it, just to avoid the "Open Terminal first", step.</p>
-          </article>
-                  <article>
-            <a href="https://gist.github.com/5f3be54ac59d7f0652bd9b803b79f70c">
-              <h2>Faster Ansible playbook iteration with tags and Vagrant snapshots</h2>
-            </a>
-            <p>Last couple of months, I had to write a large amount of Ansible playbooks, to the point that the slow write/test cycle became a major annoyance. What seemed to work well for me was a mix between Ansible tags and Vagrant snapshots.</p>
-          </article>
-                  <article>
-            <a href="https://gist.github.com/mhitza/c454f5d8a30edb122f56bc67ffb386be">
-              <h2>Prolong keyboard backlight timeout</h2>
-            </a>
-            <p>Frustrated by some weird default keyboard backlight timeout on your laptop under Linux? I know how you feel, had the same frustration with my Dell laptop until I found a workaround.</p>
-          </article>
-                  <article>
-            <a href="https://gist.github.com/mhitza/15a56a20ac80b456cda6">
-              <h2>LVM snapshots</h2>
-            </a>
-            <p>A great feature to use when experimenting with different system setups. I no longer have to worry about polluting my system with extra packages when I want to test a new desktop environment, or a new driver version, or even a botched system installation. With LVM I can snapshot a working system and restore it if something goes wrong.</p>
-          </article>
-                  <article>
-            <a href="https://gist.github.com/mhitza/8a4608f4dfdec20d3879">
-              <h2>Programming Arduino Uno (ATmega386P) in assembly</h2>
-            </a>
-            <p>After reading various sources on the topic I've written notes, and a sample project, to illustrate a working setup for the task. Also tried to go a little more in depth in certain parts, to clear up some confusion I've dealt with when researching the topic.</p>
-          </article>
-                  <article>
-            <a href="https://gist.github.com/mhitza/81651f49b3a43e6f4554">
-              <h2>How to connect your PSP on Linux</h2>
-            </a>
-            <p>Common debugging steps you can try if it doesn't get automounted like it should.</p>
-          </article>
-                  <article>
-            <a href="https://gist.github.com/mhitza/189cdecacb93ecd83f29">
-              <h2>Sculpin for Github pages</h2>
-            </a>
-            <p>Repository setup that I've used in the past for static blog publishing via Sculpin. Model inspired by Octopress in it's repository setup.</p>
-          </article>
-              </section>
+      <div class="tooltip">
+        <kbd>TAB</kbd>/<kbd>SHIFT-TAB</kbd> navigation
+      </div>
+                                                  <article>
+          <a href="https://gist.github.com/8e859a36f9325f605d27d58cdc446291">
+            <h2>CentOS 8 Stream on your favorite cloud provider</h2>
+          </a>
+          <p>I think we're all enthusiastic about the scheduled release of Rocky Linux on the 31st of March. At the same time, I think this is also a good moment to give CentOS 8 Stream a quick test drive with the software we develop and maintain. Just a plan B. Some cloud providers don't yet have Stream images, so I wrote a cloud-init configuration to convert any CentOS 8 distro to CentOS 8 Stream.</p>
+        </article>
+                              <article>
+          <a href="https://gist.github.com/a00d7900571e9f13bac2bbf4a203d21b">
+            <h2>vim + GNU Guile development environment</h2>
+          </a>
+          <p>When following getting started guides for Lisp/Scheme languages, most of the resources I find tend to prefer EMACS instead of vim. Understandable, considering the *almost* built-in development environment you get with EMACS.  This is my attempt at trying to setup, and use, a scheme development environment using vim.</p>
+        </article>
+                                            <article>
+          <a href="https://gist.github.com/5f3be54ac59d7f0652bd9b803b79f70c">
+            <h2>Faster Ansible playbook iteration with tags and Vagrant snapshots</h2>
+          </a>
+          <p>Last couple of months, I had to write a large amount of Ansible playbooks, to the point that the slow write/test cycle became a major annoyance. What seemed to work well for me was a mix between Ansible tags and Vagrant snapshots.</p>
+        </article>
+                                            <article>
+          <a href="https://gist.github.com/mhitza/15a56a20ac80b456cda6">
+            <h2>LVM snapshots</h2>
+          </a>
+          <p>A great feature to use when experimenting with different system setups. I no longer have to worry about polluting my system with extra packages when I want to test a new desktop environment, or a new driver version, or even a botched system installation. With LVM I can snapshot a working system and restore it if something goes wrong.</p>
+        </article>
+                              <article>
+          <a href="https://gist.github.com/mhitza/8a4608f4dfdec20d3879">
+            <h2>Programming Arduino Uno (ATmega386P) in assembly</h2>
+          </a>
+          <p>After reading various sources on the topic I've written notes, and a sample project, to illustrate a working setup for the task. Also tried to go a little more in depth in certain parts, to clear up some confusion I've dealt with when researching the topic.</p>
+        </article>
+                                                  <article id="load-more">
+          <p class="clip">
+            - - - <a href="/scratchpad.html" class="" style="display: inline; text-decoration: none;">▼ view one-off scripts, patchwork, and notes</a> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+          </p>
+        </article>
     </main>
     <!-- http://archive.vn/hmIbO -->
     <aside style="background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url('https://github.com/user-attachments/assets/db036ae2-9919-4976-9182-c0f437896ba2')">
@@ -329,5 +299,18 @@
         image by <a href="https://unsplash.com/photos/purple-and-white-lighted-pendant-lamps-kL3u4Tqfn1s">Ray ZHUANG</a>
       </div>
     </aside>
+    <script>
+    document.querySelector('p.clip a').addEventListener('click', async (event) => {
+      event.preventDefault();
+      const response = await fetch(event.target.href);
+      const text = await response.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(text, 'text/html');
+      const articles = doc.querySelectorAll('main > *');
+      document.querySelector('main').append(...articles);
+
+      document.querySelector('p.clip a').remove();
+    });
+    </script>
   </body>
 </html>

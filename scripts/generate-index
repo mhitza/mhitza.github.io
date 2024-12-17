@@ -11,7 +11,7 @@ if (!file_exists($image_tmp)) {
     file_put_contents($image_tmp, file_get_contents($image['url']));
 }
 
-preg_match('/#[A-Z0-9]+/', exec("magick $image_tmp -resize 1x1 txt:-"), $matches);
+preg_match('/#[A-Z0-9]+/', exec("convert $image_tmp -resize 1x1 txt:-"), $matches);
 $average_hex = $matches[0];
 $entries = [];
 
@@ -24,6 +24,7 @@ foreach(scandir("references/", SCANDIR_SORT_DESCENDING) as $reference) {
     'title'   => trim(substr($lines[0], 6)),
     'url'     => trim(substr($lines[1], 4)),
     'summary' => trim(substr($lines[2], 8)),
+    'scrap'   => stristr($lines[3] ?? "", 'scrap:')
   ];
 }
 
@@ -112,10 +113,6 @@ ob_start();
           max-height: 100%;
         }
 
-        section {
-          max-width: 700px;
-        }
-
         .image_credit {
             margin-bottom: 1.5rem;
         }
@@ -158,7 +155,7 @@ ob_start();
         text-decoration: underline;
       }
 
-      article a, article a h2 {
+      article > a, article a h2 {
         font-size: 1.5rem;
         font-weight: normal;
         margin-top: 0;
@@ -186,6 +183,12 @@ ob_start();
       article p {
         font-size: 1.0rem;
         margin-top: 0;
+        max-width: 65ch;
+      }
+
+      article p.clip {
+        overflow-x: hidden;
+        text-wrap: nowrap;
       }
 
       a {
@@ -256,7 +259,7 @@ ob_start();
       }
 
       .image_credit {
-        padding-left: 1.2rem;
+        padding-left: 1.4rem;
       }
 
       hr {
@@ -264,24 +267,30 @@ ob_start();
         border: 0;
         border-top: 1px dashed white;
       }
+
     </style>
   </head>
 
   <body>
     <main>
-      <section>
-        <div class="tooltip">
-          <kbd>TAB</kbd>/<kbd>SHIFT-TAB</kbd> navigation
-        </div>
-        <?php foreach ($entries as $entry): ?>
-          <article>
-            <a href="<?php echo $entry['url']; ?>">
-              <h2><?php echo $entry['title']; ?></h2>
-            </a>
-            <p><?php echo $entry["summary"]; ?></p>
-          </article>
-        <?php endforeach; ?>
-      </section>
+      <div class="tooltip">
+        <kbd>TAB</kbd>/<kbd>SHIFT-TAB</kbd> navigation
+      </div>
+      <?php foreach ($entries as $entry): ?>
+        <?php if (!$entry['scrap']): ?>
+        <article>
+          <a href="<?php echo $entry['url']; ?>">
+            <h2><?php echo $entry['title']; ?></h2>
+          </a>
+          <p><?php echo $entry["summary"]; ?></p>
+        </article>
+        <?php endif; ?>
+      <?php endforeach; ?>
+        <article id="load-more">
+          <p class="clip">
+            - - - <a href="/scratchpad.html" class="" style="display: inline; text-decoration: none;">▼ view one-off scripts, patchwork, and notes</a> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+          </p>
+        </article>
     </main>
     <!-- http://archive.vn/hmIbO -->
     <aside style="background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url('<?php echo $image['url']; ?>')">
@@ -302,6 +311,43 @@ ob_start();
         image by <a href="<?php echo $image['source']; ?>"><?php echo $image['author']; ?></a>
       </div>
     </aside>
+    <script>
+    document.querySelector('p.clip a').addEventListener('click', async (event) => {
+      event.preventDefault();
+      const response = await fetch(event.target.href);
+      const text = await response.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(text, 'text/html');
+      const articles = doc.querySelectorAll('main > *');
+      document.querySelector('main').append(...articles);
+
+      document.querySelector('p.clip a').remove();
+    });
+    </script>
   </body>
 </html>
 <?php file_put_contents("index.html", ob_get_clean()); ?>
+<?php ob_start(); ?>
+<!DOCTYPE html>
+<html lang="en">
+  <head lang="en">
+    <title>scratchpad</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <link rel="canonical" href="https://mhitza.github.com" />
+  </head>
+  <body>
+  <main>
+    <?php foreach ($entries as $entry): ?>
+      <?php if ($entry['scrap']): ?>
+      <article>
+        <a href="<?php echo $entry['url']; ?>">
+          <h2><?php echo $entry['title']; ?></h2>
+        </a>
+        <p><?php echo $entry["summary"]; ?></p>
+      </article>
+      <?php endif; ?>
+    <?php endforeach; ?>
+  </main>
+  </body>
+<?php file_put_contents("scratchpad.html", ob_get_clean()); ?>
