@@ -24,7 +24,8 @@ foreach(scandir("references/", SCANDIR_SORT_DESCENDING) as $reference) {
     'title'   => trim(substr($lines[0], 6)),
     'url'     => trim(substr($lines[1], 4)),
     'summary' => trim(substr($lines[2], 8)),
-    'scrap'   => stristr($lines[3] ?? "", 'scrap:')
+    'scrap'   => stristr($lines[3] ?? "", 'scrap:'),
+    'date'    => strtotime($reference)
   ];
 }
 
@@ -147,6 +148,16 @@ ob_start();
         margin-right: 1rem;
       }
 
+      article + article {
+        margin-top: 2rem;
+      }
+
+      article time {
+        display: block;
+        font-family: monospace;
+        font-size: 0.7rem;
+      }
+
       article a {
         outline: none;
         scroll-margin: 4em;
@@ -183,7 +194,8 @@ ob_start();
 
       article p {
         font-size: 1.0rem;
-        margin-top: 0;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
         max-width: 65ch;
       }
 
@@ -284,12 +296,15 @@ ob_start();
             <h2><?php echo $entry['title']; ?></h2>
           </a>
           <p><?php echo $entry["summary"]; ?></p>
+          <time datetime="<?php echo date('Y-m-d', $entry['date']) ?>">
+            <?php echo date('F d Y', $entry['date']); ?>
+          </time>
         </article>
         <?php endif; ?>
       <?php endforeach; ?>
         <article id="load-more">
           <p class="clip">
-            - - - <a href="/scratchpad.html" class="" style="display: inline; text-decoration: none;">▼ view one-off scripts, patchwork, and notes</a> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            - - - <a href="/scratchpad.html" class="" style="display: inline; text-decoration: none;">more random scripts and notes ▼</a> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
           </p>
         </article>
     </main>
@@ -346,6 +361,9 @@ ob_start();
           <h2><?php echo $entry['title']; ?></h2>
         </a>
         <p><?php echo $entry["summary"]; ?></p>
+        <time datetime="<?php echo date('Y-m-d', $entry['date']) ?>">
+          <?php echo date('F d Y', $entry['date']); ?>
+        </time>
       </article>
       <?php endif; ?>
     <?php endforeach; ?>

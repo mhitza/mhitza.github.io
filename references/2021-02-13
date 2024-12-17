@@ -1,3 +1,3 @@
 title: vim + GNU Guile development environment
 url: https://gist.github.com/a00d7900571e9f13bac2bbf4a203d21b
-summary: When following getting started guides for Lisp/Scheme languages, most of the resources I find tend to prefer EMACS instead of vim. Understandable, considering the *almost* built-in development environment you get with EMACS.  This is my attempt at trying to setup, and use, a scheme development environment using vim.
+summary: After spending hours collecting various bits and pieces, I finally have a setup that feel very close to an integrated development environment for Guile programming. While Guile fell on the sideline since I originally shared this setup, with minor tweaks, it continues to work nicely with other Schemes.

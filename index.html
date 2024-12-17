@@ -6,7 +6,7 @@
     <meta name="description" content="a blog of technical problems, programming examples and the quirks of running a Linux system" />
     <title>personal code attic</title>
     <link href="atom.xml" type="application/atom+xml" rel="alternate" title="Atom feed" />
-    <meta name="theme-color" content="#1D1723">
+    <meta name="theme-color" content="#1C1B26">
     <link rel="icon" type="image/webp" href="/assets/favicon.webp">
     <style>
       /* latin */
@@ -115,6 +115,16 @@
         margin-right: 1rem;
       }
 
+      article + article {
+        margin-top: 2rem;
+      }
+
+      article time {
+        display: block;
+        font-family: monospace;
+        font-size: 0.7rem;
+      }
+
       article a {
         outline: none;
         scroll-margin: 4em;
@@ -151,7 +161,8 @@
 
       article p {
         font-size: 1.0rem;
-        margin-top: 0;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
         max-width: 65ch;
       }
 
@@ -249,35 +260,45 @@
           <a href="https://gist.github.com/8e859a36f9325f605d27d58cdc446291">
             <h2>CentOS 8 Stream on your favorite cloud provider</h2>
           </a>
-          <p>I think we're all enthusiastic about the scheduled release of Rocky Linux on the 31st of March. At the same time, I think this is also a good moment to give CentOS 8 Stream a quick test drive with the software we develop and maintain. Just a plan B. Some cloud providers don't yet have Stream images, so I wrote a cloud-init configuration to convert any CentOS 8 distro to CentOS 8 Stream.</p>
+          <p>The cloud-init script I've been using to convert CentOS 8 systems to CentOS Stream.</p>
+          <time datetime="2021-03-04">
+            March 04 2021          </time>
         </article>
                               <article>
           <a href="https://gist.github.com/a00d7900571e9f13bac2bbf4a203d21b">
             <h2>vim + GNU Guile development environment</h2>
           </a>
-          <p>When following getting started guides for Lisp/Scheme languages, most of the resources I find tend to prefer EMACS instead of vim. Understandable, considering the *almost* built-in development environment you get with EMACS.  This is my attempt at trying to setup, and use, a scheme development environment using vim.</p>
+          <p>After spending hours collecting various bits and pieces, I finally have a setup that feel very close to an integrated development environment for Guile programming. While Guile fell on the sideline since I originally shared this setup, with minor tweaks, it continues to work nicely with other Schemes.</p>
+          <time datetime="2021-02-13">
+            February 13 2021          </time>
         </article>
                                             <article>
           <a href="https://gist.github.com/5f3be54ac59d7f0652bd9b803b79f70c">
             <h2>Faster Ansible playbook iteration with tags and Vagrant snapshots</h2>
           </a>
-          <p>Last couple of months, I had to write a large amount of Ansible playbooks, to the point that the slow write/test cycle became a major annoyance. What seemed to work well for me was a mix between Ansible tags and Vagrant snapshots.</p>
+          <p>Playbooks, which are generally slow to run, become a pain point and distruptive when they are written and tested. Tagged tasks, and VM snapshots, are the only approach that made the feedback loop less of a chore.</p>
+          <time datetime="2020-05-07">
+            May 07 2020          </time>
         </article>
                                             <article>
           <a href="https://gist.github.com/mhitza/15a56a20ac80b456cda6">
             <h2>LVM snapshots</h2>
           </a>
-          <p>A great feature to use when experimenting with different system setups. I no longer have to worry about polluting my system with extra packages when I want to test a new desktop environment, or a new driver version, or even a botched system installation. With LVM I can snapshot a working system and restore it if something goes wrong.</p>
+          <p>While the Linux ecosystem has largely moved over to btrfs and zfs for their snapshotting needs. LVM is another - operationally simpler - option that one can use to snapshot live systems.</p>
+          <time datetime="2016-03-24">
+            March 24 2016          </time>
         </article>
                               <article>
           <a href="https://gist.github.com/mhitza/8a4608f4dfdec20d3879">
             <h2>Programming Arduino Uno (ATmega386P) in assembly</h2>
           </a>
-          <p>After reading various sources on the topic I've written notes, and a sample project, to illustrate a working setup for the task. Also tried to go a little more in depth in certain parts, to clear up some confusion I've dealt with when researching the topic.</p>
+          <p>Building on top of disparate online sources, a tutorial that illustrates how the Arduino Uno can be programmed using the assembly language.</p>
+          <time datetime="2015-10-21">
+            October 21 2015          </time>
         </article>
                                                   <article id="load-more">
           <p class="clip">
-            - - - <a href="/scratchpad.html" class="" style="display: inline; text-decoration: none;">▼ view one-off scripts, patchwork, and notes</a> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            - - - <a href="/scratchpad.html" class="" style="display: inline; text-decoration: none;">more random scripts and notes ▼</a> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
           </p>
         </article>
     </main>
