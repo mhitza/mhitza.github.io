@@ -1,9 +1,9 @@
 #!/usr/bin/env php
 <?php
 $image = [
-  'url'    => "https://github.com/user-attachments/assets/db036ae2-9919-4976-9182-c0f437896ba2",
-  'source' => "https://unsplash.com/photos/purple-and-white-lighted-pendant-lamps-kL3u4Tqfn1s",
-  'author' => "Ray ZHUANG"
+  'url'    => "https://github.com/user-attachments/assets/e6bb6248-3132-4543-b810-d53bb11d6130",
+  'source' => "https://unsplash.com/photos/a-dark-hallway-with-a-red-light-at-the-end-MhKXrKqmtJk",
+  'author' => "cheng feng"
 ];
 
 $image_tmp = "/tmp/blog_header_image";
